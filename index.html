@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio técnico de Ángel Noriega. Especialista en Administración de Sistemas Linux (Arch), Seguridad y Operaciones (SecOps) y Automatización.">
+    <title>Ángel Noriega | SysAdmin &amp; SecOps Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">AN</a>
+            <nav class="nav-links">
+                <a href="#proyectos">Proyectos &amp; Scripting</a>
+                <a href="#competencias">Competencias</a>
+                <a href="#sobre-mi">Perfil</a>
+                <a href="#contacto" class="nav-btn">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-tag">SYSADMIN // SISTEMAS &amp; OPERACIONES</div>
+                <h1 class="hero-title">Desarrollo sistemas, automatizo procesos y despliego infraestructura Linux.</h1>
+                <p class="hero-subtitle">
+                    Estudiante de Ingeniería en Informática especializado en Android nativo, Linux, IoT y desarrollo backend.
+                </p>
+                <div class="hero-actions">
+                    <a href="#proyectos" class="btn-solid">Ver Scripts y Proyectos</a>
+                    <a href="#contacto" class="btn-outline">Hablemos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Experience Highlights -->
+        <section class="quick-stats">
+            <div class="container stats-container">
+                <div class="stat-item">
+                    <span class="stat-num">15+</span>
+                    <span class="stat-label">Proyectos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">5</span>
+                    <span class="stat-label">Servicios</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">3</span>
+                    <span class="stat-label">Sistemas IoT</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Grid Section -->
+        <section id="proyectos" class="projects-section">
+            <div class="container">
+                <div class="section-meta">PROYECTOS SELECCIONADOS</div>
+                <h2 class="section-title">Trabajo de Ingeniería</h2>
+                <div class="projects-grid">
+                    <!-- Project 1: Fundación Bon Sens -->
+                    <div class="project-card">
+                        <div class="project-media">
+                            <img src="assets/bonsens.png" alt="Fundación Bon Sens" loading="lazy">
+                        </div>
+                        <div class="card-meta">
+                            <span class="tech-stack">Docker &bull; Docker Compose &bull; PostgreSQL &bull; PHP</span>
+                            <span class="project-status">Public</span>
+                        </div>
+                        <h3 class="project-title">Fundación Bon Sens (DevOps)</h3>
+                        <p class="project-desc">
+                            Orquestación e infraestructura local para plataforma web transaccional. Configuración de contenedores aislados (Apache, PHP y Postgres) con scripts bash de arranque (`entrypoint.sh`) y automatizaciones de base de datos.
+                        </p>
+                        <div class="project-highlights">
+                            <div class="highlight-item"><i class="fa-solid fa-box-open"></i> Empaquetado y despliegue rápido con Docker</div>
+                            <div class="highlight-item"><i class="fa-solid fa-database"></i> Scripting de inicialización DDL y datos de prueba</div>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/Angelds-20/fundacion-bon-sens" class="card-link" target="_blank">Ver Repositorio <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: POS Inventarios -->
+                    <div class="project-card">
+                        <div class="project-media">
+                            <img src="assets/inventario.png" alt="Sistema POS e Inventarios" loading="lazy">
+                        </div>
+                        <div class="card-meta">
+                            <span class="tech-stack">Django &bull; React &bull; SQLite &bull; Python</span>
+                            <span class="project-status private">Comercial / Privado</span>
+                        </div>
+                        <h3 class="project-title">Punto de Venta e Inventarios</h3>
+                        <p class="project-desc">
+                            Sistema POS full-stack para el control de existencias en comercios. Cuenta con sistema de alertas críticas de stock mínimo, integración directa con lectores físicos de código de barras y exportación de comprobantes.
+                        </p>
+                        <div class="project-highlights">
+                            <div class="highlight-item"><i class="fa-solid fa-barcode"></i> Soporte de lector barcode Plug & Play</div>
+                            <div class="highlight-item"><i class="fa-solid fa-print"></i> Optimización de impresión de comprobantes/facturas</div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: ClearDose & ESP32 Integration -->
+                    <div class="project-card">
+                        <div class="project-media media-portrait">
+                            <video src="assets/cleardose.mp4" autoplay loop muted playsinline></video>
+                        </div>
+                        <div class="card-meta">
+                            <span class="tech-stack">C++ (Arduino) &bull; Bluetooth Serial &bull; Kotlin</span>
+                            <span class="project-status">Public</span>
+                        </div>
+                        <h3 class="project-title">Automatización de Caudal IoT</h3>
+                        <p class="project-desc">
+                            Firmware en C++ para ESP32 diseñado para interactuar con hardware físico (electroválvula y caudalímetro). Controla el flujo hídrico recibiendo órdenes vía Bluetooth Serial desde la aplicación cliente.
+                        </p>
+                        <div class="project-highlights">
+                            <div class="highlight-item"><i class="fa-solid fa-microchip"></i> Rutina de interrupción por hardware para contar pulsos</div>
+                            <div class="highlight-item"><i class="fa-solid fa-toggle-on"></i> Activación y desactivación automática del solenoide</div>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/Angelds-20/ClearDose" class="card-link" target="_blank">Ver Repositorio <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: QRSend -->
+                    <div class="project-card">
+                        <div class="project-media">
+                            <img src="assets/qrsend_sender.png" alt="QRSend" loading="lazy">
+                        </div>
+                        <div class="card-meta">
+                            <span class="tech-stack">Go (Golang) &bull; SQLite &bull; WebSockets</span>
+                            <span class="project-status private">Comercial / Privado</span>
+                        </div>
+                        <h3 class="project-title">QRSend (Servicio LAN)</h3>
+                        <p class="project-desc">
+                            Servicio de red local portable compilado en un binario autocontenido. Permite el traspaso de archivos en redes inalámbricas locales sin conexión a internet mediante códigos de emparejamiento QR y sockets de datos.
+                        </p>
+                        <div class="project-highlights">
+                            <div class="highlight-item"><i class="fa-solid fa-network-wired"></i> Envío de datos por red LAN sin configuración intermedia</div>
+                            <div class="highlight-item"><i class="fa-solid fa-bolt"></i> Transferencia reanudable mediante offsets de archivos</div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: Netscan -->
+                    <div class="project-card">
+                        <div class="project-media">
+                            <img src="assets/camscan.png" alt="Netscan" loading="lazy">
+                        </div>
+                        <div class="card-meta">
+                            <span class="tech-stack">Bash &bull; Nmap &bull; Linux CLI &bull; Netcat</span>
+                            <span class="project-status">Public</span>
+                        </div>
+                        <h3 class="project-title">Netscan</h3>
+                        <p class="project-desc">
+                            Escáner de red local modular diseñado para auditar la seguridad interna de routers y dispositivos locales. Automatiza el descubrimiento de cámaras IP vulnerables, protocolos UPnP y puertos abiertos.
+                        </p>
+                        <div class="project-highlights">
+                            <div class="highlight-item"><i class="fa-solid fa-terminal"></i> Script modular escrito 100% en Bash shell</div>
+                            <div class="highlight-item"><i class="fa-solid fa-magnifying-glass"></i> Mapeo rápido de puertos y vectores locales</div>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/Angelds-20/Netscan" class="card-link" target="_blank">Ver Repositorio <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills / Experience -->
+        <section id="competencias" class="skills-section">
+            <div class="container">
+                <div class="section-meta">HABILIDADES OPERATIVAS</div>
+                <h2 class="section-title">Áreas de Especialidad</h2>
+                
+                <div class="skills-grid">
+                    <!-- Category 1 -->
+                    <div class="skill-category">
+                        <h3 class="category-title">Administración Linux</h3>
+                        <ul class="skill-list">
+                            <li>Arch Linux (Entorno diario)</li>
+                            <li>Automatización en Bash</li>
+                            <li>Configuración Hyprland / TWMs</li>
+                            <li>Systemd / Gestión de Servicios</li>
+                            <li>Monitoreo de Recursos (btop)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Category 2 -->
+                    <div class="skill-category">
+                        <h3 class="category-title">Operaciones &amp; Cloud</h3>
+                        <ul class="skill-list">
+                            <li>Contenedores Docker</li>
+                            <li>Docker Compose</li>
+                            <li>Gestión básica en AWS</li>
+                            <li>Bases de datos (Postgres / SQLite)</li>
+                            <li>Despliegue continuo (Render)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Category 3 -->
+                    <div class="skill-category">
+                        <h3 class="category-title">Redes &amp; Ciberseguridad</h3>
+                        <ul class="skill-list">
+                            <li>Escaneo y auditoría (Nmap)</li>
+                            <li>Mapeo de puertos locales</li>
+                            <li>Análisis UPnP y vulnerabilidades</li>
+                            <li>Divulgación Responsable</li>
+                            <li>Resolución de fallas de red</li>
+                        </ul>
+                    </div>
+
+                    <!-- Category 4 -->
+                    <div class="skill-category">
+                        <h3 class="category-title">Scripting &amp; IoT</h3>
+                        <ul class="skill-list">
+                            <li>C++ (Lógica ESP32 / Arduino)</li>
+                            <li>Python (Scripts utilitarios)</li>
+                            <li>Go / Kotlin (Herramientas CLI)</li>
+                            <li>Bluetooth Serial / Telemetría</li>
+                            <li>PlatformIO</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="sobre-mi" class="about-section">
+            <div class="container">
+                <div class="about-layout">
+                    <div class="about-text">
+                        <div class="section-meta">PERFIL</div>
+                        <h2 class="section-title">Sobre Ángel Noriega</h2>
+                        <p class="about-p">
+                            <strong>Estudiante de Ingeniería en Informática | Desarrollo Backend, Linux e IoT</strong>. Mi fuerte técnico está en la administración de entornos Linux, la orquestación de sistemas, la seguridad a nivel de red y el uso de scripts de consola para automatizar tareas rutinarias.
+                        </p>
+                        <p class="about-p">
+                            Considero la programación como una herramienta para construir integraciones, desarrollar scripts funcionales e implementar firmware sobre microcontroladores (como el ESP32 para proyectos IoT), priorizando la simplicidad y la seguridad del sistema.
+                        </p>
+                    </div>
+                    <div class="about-meta-box">
+                        <div class="meta-row">
+                            <span class="meta-label">Estudios</span>
+                            <span class="meta-value">Ingeniería en Informática, INACAP</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="meta-label">Ubicación</span>
+                            <span class="meta-value">Talca, Chile</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="meta-label">OS Diario</span>
+                            <span class="meta-value">Arch Linux / Hyprland</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contacto" class="contact-section">
+            <div class="container">
+                <div class="contact-layout">
+                    <div class="contact-header">
+                        <div class="section-meta">CONECTAR</div>
+                        <h2 class="section-title">Iniciar una conversación</h2>
+                        <p class="contact-p">
+                            Ponte en contacto si necesitas automatizar tareas, orquestar servicios con Docker, configurar entornos locales o revisar la seguridad de un segmento de red.
+                        </p>
+                        <div class="contact-channels">
+                            <a href="mailto:4N63L@proton.me" class="channel-link"><i class="fa-solid fa-envelope"></i> 4N63L@proton.me</a>
+                            <a href="https://linkedin.com/in/angel-noriega-42b122373" target="_blank" class="channel-link"><i class="fa-brands fa-linkedin"></i> in/angel-noriega-42b122373</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-box">
+                        <form id="portfolio-contact-form">
+                            <div class="form-group">
+                                <label for="c-name">Nombre</label>
+                                <input type="text" id="c-name" name="name" required placeholder="Tu nombre">
+                            </div>
+                            <div class="form-group">
+                                <label for="c-email">Email</label>
+                                <input type="email" id="c-email" name="email" required placeholder="tu@correo.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="c-message">Mensaje</label>
+                                <textarea id="c-message" name="message" rows="4" required placeholder="¿Qué necesitas automatizar o revisar?"></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit" id="btn-submit">Enviar Mensaje</button>
+                            <div id="form-feedback" class="form-feedback"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 Ángel Noriega. Sistemas &amp; Operaciones.</p>
+            <div class="footer-links">
+                <a href="https://github.com/Angelds-20" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/angel-noriega-42b122373" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
