@@ -3,70 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portafolio técnico de Ángel Noriega. Especialista en Administración de Sistemas Linux (Arch), Seguridad y Operaciones (SecOps) y Automatización.">
-    <title>Ángel Noriega | SysAdmin &amp; SecOps Portfolio</title>
+    
+    <!-- SEO & Indexación -->
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Portafolio de Ángel Noriega. Estudiante de Ingeniería en Informática especializado en Linux, SysAdmin, IoT, Backend y Automatización.">
+    <meta name="keywords" content="Ángel Noriega, SysAdmin, Linux, DevOps, SecOps, Docker, ESP32, IoT, Go, Bash, Django, Talca, Chile, Portafolio">
+    <link rel="canonical" href="https://angelds-20.github.io/">
+    
+    <!-- Open Graph (Redes Sociales) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ángel Noriega | SysAdmin, IoT &amp; Automatización">
+    <meta property="og:description" content="Portafolio de sistemas, infraestructura Linux y desarrollo de software. Proyectos IoT, backend y Docker.">
+    <meta property="og:url" content="https://angelds-20.github.io/">
+    <meta property="og:image" content="https://angelds-20.github.io/assets/bonsens.png">
+    
+    <title>Ángel Noriega | SysAdmin, IoT &amp; Automatización</title>
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation (Tab Switching Menu) -->
     <header class="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-logo">AN</a>
+            <a href="#inicio" class="nav-logo tab-link" data-tab="inicio">AN</a>
             <nav class="nav-links">
-                <a href="#proyectos">Proyectos &amp; Scripting</a>
-                <a href="#competencias">Competencias</a>
-                <a href="#sobre-mi">Perfil</a>
-                <a href="#contacto" class="nav-btn">Contacto</a>
+                <a href="#inicio" class="tab-link active" data-tab="inicio">// inicio</a>
+                <a href="#proyectos" class="tab-link" data-tab="proyectos">// proyectos</a>
+                <a href="#competencias" class="tab-link" data-tab="competencias">// competencias</a>
+                <a href="#consola" class="tab-link" data-tab="consola">// terminal.sh</a>
+                <a href="#sobre-mi" class="tab-link" data-tab="sobre-mi">// perfil</a>
+                <a href="#contacto" class="nav-btn tab-link" data-tab="contacto">Contacto</a>
             </nav>
         </div>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-container">
-                <div class="hero-tag">SYSADMIN // SISTEMAS &amp; OPERACIONES</div>
-                <h1 class="hero-title">Desarrollo sistemas, automatizo procesos y despliego infraestructura Linux.</h1>
-                <p class="hero-subtitle">
-                    Estudiante de Ingeniería en Informática especializado en Android nativo, Linux, IoT y desarrollo backend.
-                </p>
-                <div class="hero-actions">
-                    <a href="#proyectos" class="btn-solid">Ver Scripts y Proyectos</a>
-                    <a href="#contacto" class="btn-outline">Hablemos</a>
+    <main class="main-content">
+        <!-- ==========================================
+             TAB 1: INICIO (DASHBOARD)
+             ========================================== -->
+        <section id="tab-inicio" class="tab-content active">
+            <div class="container dashboard-grid">
+                <!-- Left: Hero Text -->
+                <div class="hero-intro">
+                    <div class="hero-tag">SYSADMIN // SISTEMAS &amp; AUTOMATIZACIÓN</div>
+                    <h1 class="hero-title">Software, automatización e infraestructura Linux.</h1>
+                    <p class="hero-subtitle">
+                        Estudiante de Ingeniería en Informática especializado en Android nativo, Linux, IoT y desarrollo backend.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#proyectos" class="btn-solid tab-link" data-tab="proyectos">Ver Proyectos</a>
+                        <a href="#consola" class="btn-outline tab-link" data-tab="consola"><i class="fa-solid fa-terminal"></i> Abrir Terminal</a>
+                    </div>
+                    
+                    <div class="quick-system-stats">
+                        <div class="stat-card">
+                            <span class="stat-value">15+</span>
+                            <span class="stat-desc">Proyectos Locales</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-value">5</span>
+                            <span class="stat-desc">Contenedores Docker</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-value">3</span>
+                            <span class="stat-desc">Módulos IoT</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right: htop/btop System Monitor Widget -->
+                <div class="hero-widget">
+                    <div class="sys-monitor">
+                        <div class="monitor-header">
+                            <span class="monitor-title"><i class="fa-solid fa-microchip"></i> system-status.sh</span>
+                            <span class="monitor-status-pulse"></span>
+                            <span class="monitor-badge">LIVE</span>
+                        </div>
+                        <div class="monitor-body">
+                            <div class="monitor-row">
+                                <span class="monitor-label">OS:</span>
+                                <span class="monitor-val">Arch Linux x86_64</span>
+                            </div>
+                            <div class="monitor-row">
+                                <span class="monitor-label">Kernel:</span>
+                                <span class="monitor-val">Linux 6.8.9-arch1-1</span>
+                            </div>
+                            <div class="monitor-row">
+                                <span class="monitor-label">Uptime:</span>
+                                <span class="monitor-val" id="monitor-uptime">00:00:00</span>
+                            </div>
+                            
+                            <!-- CPU Progress Bar -->
+                            <div class="monitor-progress-group">
+                                <div class="progress-info">
+                                    <span class="monitor-label">CPU:</span>
+                                    <span class="monitor-val" id="monitor-cpu-text">12%</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" id="monitor-cpu-bar" style="width: 12%"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- MEM Progress Bar -->
+                            <div class="monitor-progress-group">
+                                <div class="progress-info">
+                                    <span class="monitor-label">MEM:</span>
+                                    <span class="monitor-val" id="monitor-mem-text">43.2%</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" id="monitor-mem-bar" style="width: 43.2%"></div>
+                                </div>
+                            </div>
+
+                            <div class="monitor-services">
+                                <div class="services-title">DAEMONS STATUS</div>
+                                <div class="service-row">
+                                    <span class="service-name"><span class="dot-active"></span> docker.service</span>
+                                    <span class="service-status">active (running)</span>
+                                </div>
+                                <div class="service-row">
+                                    <span class="service-name"><span class="dot-active"></span> sshd.service</span>
+                                    <span class="service-status">active (listening)</span>
+                                </div>
+                                <div class="service-row">
+                                    <span class="service-name"><span class="dot-active"></span> netscan.timer</span>
+                                    <span class="service-status">active (waiting)</span>
+                                </div>
+                                <div class="service-row">
+                                    <span class="service-name"><span class="dot-active"></span> caudal-iot.daemon</span>
+                                    <span class="service-status">active (running)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Quick Experience Highlights -->
-        <section class="quick-stats">
-            <div class="container stats-container">
-                <div class="stat-item">
-                    <span class="stat-num">15+</span>
-                    <span class="stat-label">Proyectos</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-num">5</span>
-                    <span class="stat-label">Servicios</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-num">3</span>
-                    <span class="stat-label">Sistemas IoT</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Grid Section -->
-        <section id="proyectos" class="projects-section">
+        <!-- ==========================================
+             TAB 2: PROYECTOS
+             ========================================== -->
+        <section id="tab-proyectos" class="tab-content">
             <div class="container">
                 <div class="section-meta">PROYECTOS SELECCIONADOS</div>
                 <h2 class="section-title">Trabajo de Ingeniería</h2>
+                <p class="section-subtitle-text">Haz clic en "Detalles Técnicos" para auditar las configuraciones de red, contenedores Docker y scripts de cada proyecto.</p>
+                
                 <div class="projects-grid">
                     <!-- Project 1: Fundación Bon Sens -->
                     <div class="project-card">
@@ -74,19 +165,20 @@
                             <img src="assets/bonsens.png" alt="Fundación Bon Sens" loading="lazy">
                         </div>
                         <div class="card-meta">
-                            <span class="tech-stack">Docker &bull; Docker Compose &bull; PostgreSQL &bull; PHP</span>
+                            <span class="tech-stack">Docker &bull; Compose &bull; PostgreSQL &bull; PHP</span>
                             <span class="project-status">Public</span>
                         </div>
-                        <h3 class="project-title">Fundación Bon Sens (DevOps)</h3>
+                        <h3 class="project-title">Fundación Bon Sens</h3>
                         <p class="project-desc">
                             Orquestación e infraestructura local para plataforma web transaccional. Configuración de contenedores aislados (Apache, PHP y Postgres) con scripts bash de arranque (`entrypoint.sh`) y automatizaciones de base de datos.
                         </p>
                         <div class="project-highlights">
-                            <div class="highlight-item"><i class="fa-solid fa-box-open"></i> Empaquetado y despliegue rápido con Docker</div>
-                            <div class="highlight-item"><i class="fa-solid fa-database"></i> Scripting de inicialización DDL y datos de prueba</div>
+                            <div class="highlight-item"><i class="fa-solid fa-box-open"></i> Contenedores aislados y orquestados</div>
+                            <div class="highlight-item"><i class="fa-solid fa-database"></i> Scripting de inicialización DDL automático</div>
                         </div>
-                        <div class="card-links">
-                            <a href="https://github.com/Angelds-20/fundacion-bon-sens" class="card-link" target="_blank">Ver Repositorio <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <div class="card-actions">
+                            <a href="https://github.com/Angelds-20/fundacion-bon-sens" class="card-link-btn" target="_blank"><i class="fa-brands fa-github"></i> Repo</a>
+                            <button class="card-detail-btn" data-project="bonsens"><i class="fa-solid fa-code"></i> Detalles Técnicos</button>
                         </div>
                     </div>
 
@@ -104,18 +196,22 @@
                             Sistema POS full-stack para el control de existencias en comercios. Cuenta con sistema de alertas críticas de stock mínimo, integración directa con lectores físicos de código de barras y exportación de comprobantes.
                         </p>
                         <div class="project-highlights">
-                            <div class="highlight-item"><i class="fa-solid fa-barcode"></i> Soporte de lector barcode Plug & Play</div>
-                            <div class="highlight-item"><i class="fa-solid fa-print"></i> Optimización de impresión de comprobantes/facturas</div>
+                            <div class="highlight-item"><i class="fa-solid fa-barcode"></i> Integración barcode Plug & Play</div>
+                            <div class="highlight-item"><i class="fa-solid fa-print"></i> Optimización de impresión de recibos térmicos</div>
+                        </div>
+                        <div class="card-actions">
+                            <span class="card-status-label"><i class="fa-solid fa-lock"></i> Código Privado</span>
+                            <button class="card-detail-btn" data-project="pos"><i class="fa-solid fa-code"></i> Detalles Técnicos</button>
                         </div>
                     </div>
 
-                    <!-- Project 3: ClearDose & ESP32 Integration -->
+                    <!-- Project 3: ClearDose -->
                     <div class="project-card">
                         <div class="project-media media-portrait">
                             <video src="assets/cleardose.mp4" autoplay loop muted playsinline></video>
                         </div>
                         <div class="card-meta">
-                            <span class="tech-stack">C++ (Arduino) &bull; Bluetooth Serial &bull; Kotlin</span>
+                            <span class="tech-stack">C++ (Arduino) &bull; Bluetooth &bull; Kotlin</span>
                             <span class="project-status">Public</span>
                         </div>
                         <h3 class="project-title">Automatización de Caudal IoT</h3>
@@ -123,11 +219,12 @@
                             Firmware en C++ para ESP32 diseñado para interactuar con hardware físico (electroválvula y caudalímetro). Controla el flujo hídrico recibiendo órdenes vía Bluetooth Serial desde la aplicación cliente.
                         </p>
                         <div class="project-highlights">
-                            <div class="highlight-item"><i class="fa-solid fa-microchip"></i> Rutina de interrupción por hardware para contar pulsos</div>
-                            <div class="highlight-item"><i class="fa-solid fa-toggle-on"></i> Activación y desactivación automática del solenoide</div>
+                            <div class="highlight-item"><i class="fa-solid fa-microchip"></i> Rutinas de interrupción de hardware (Pulsos)</div>
+                            <div class="highlight-item"><i class="fa-solid fa-toggle-on"></i> Control de solenoide por relevador</div>
                         </div>
-                        <div class="card-links">
-                            <a href="https://github.com/Angelds-20/ClearDose" class="card-link" target="_blank">Ver Repositorio <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <div class="card-actions">
+                            <a href="https://github.com/Angelds-20/ClearDose" class="card-link-btn" target="_blank"><i class="fa-brands fa-github"></i> Repo</a>
+                            <button class="card-detail-btn" data-project="cleardose"><i class="fa-solid fa-code"></i> Detalles Técnicos</button>
                         </div>
                     </div>
 
@@ -137,7 +234,7 @@
                             <img src="assets/qrsend_sender.png" alt="QRSend" loading="lazy">
                         </div>
                         <div class="card-meta">
-                            <span class="tech-stack">Go (Golang) &bull; SQLite &bull; WebSockets</span>
+                            <span class="tech-stack">Go (Golang) &bull; WebSockets &bull; SQLite</span>
                             <span class="project-status private">Comercial / Privado</span>
                         </div>
                         <h3 class="project-title">QRSend (Servicio LAN)</h3>
@@ -145,8 +242,12 @@
                             Servicio de red local portable compilado en un binario autocontenido. Permite el traspaso de archivos en redes inalámbricas locales sin conexión a internet mediante códigos de emparejamiento QR y sockets de datos.
                         </p>
                         <div class="project-highlights">
-                            <div class="highlight-item"><i class="fa-solid fa-network-wired"></i> Envío de datos por red LAN sin configuración intermedia</div>
-                            <div class="highlight-item"><i class="fa-solid fa-bolt"></i> Transferencia reanudable mediante offsets de archivos</div>
+                            <div class="highlight-item"><i class="fa-solid fa-network-wired"></i> Envío directo sin servidor de internet intermediario</div>
+                            <div class="highlight-item"><i class="fa-solid fa-bolt"></i> Reanudación de archivos grandes por offset</div>
+                        </div>
+                        <div class="card-actions">
+                            <span class="card-status-label"><i class="fa-solid fa-lock"></i> Código Privado</span>
+                            <button class="card-detail-btn" data-project="qrsend"><i class="fa-solid fa-code"></i> Detalles Técnicos</button>
                         </div>
                     </div>
 
@@ -156,7 +257,7 @@
                             <img src="assets/camscan.png" alt="Netscan" loading="lazy">
                         </div>
                         <div class="card-meta">
-                            <span class="tech-stack">Bash &bull; Nmap &bull; Linux CLI &bull; Netcat</span>
+                            <span class="tech-stack">Bash &bull; Nmap &bull; Netcat &bull; CLI</span>
                             <span class="project-status">Public</span>
                         </div>
                         <h3 class="project-title">Netscan</h3>
@@ -164,19 +265,22 @@
                             Escáner de red local modular diseñado para auditar la seguridad interna de routers y dispositivos locales. Automatiza el descubrimiento de cámaras IP vulnerables, protocolos UPnP y puertos abiertos.
                         </p>
                         <div class="project-highlights">
-                            <div class="highlight-item"><i class="fa-solid fa-terminal"></i> Script modular escrito 100% en Bash shell</div>
-                            <div class="highlight-item"><i class="fa-solid fa-magnifying-glass"></i> Mapeo rápido de puertos y vectores locales</div>
+                            <div class="highlight-item"><i class="fa-solid fa-terminal"></i> Script de Bash estructurado en módulos independientes</div>
+                            <div class="highlight-item"><i class="fa-solid fa-magnifying-glass"></i> Mapeo selectivo de vulnerabilidades locales</div>
                         </div>
-                        <div class="card-links">
-                            <a href="https://github.com/Angelds-20/Netscan" class="card-link" target="_blank">Ver Repositorio <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <div class="card-actions">
+                            <a href="https://github.com/Angelds-20/Netscan" class="card-link-btn" target="_blank"><i class="fa-brands fa-github"></i> Repo</a>
+                            <button class="card-detail-btn" data-project="netscan"><i class="fa-solid fa-code"></i> Detalles Técnicos</button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Technical Skills / Experience -->
-        <section id="competencias" class="skills-section">
+        <!-- ==========================================
+             TAB 3: HABILDADES/COMPETENCIAS
+             ========================================== -->
+        <section id="tab-competencias" class="tab-content">
             <div class="container">
                 <div class="section-meta">HABILIDADES OPERATIVAS</div>
                 <h2 class="section-title">Áreas de Especialidad</h2>
@@ -184,72 +288,109 @@
                 <div class="skills-grid">
                     <!-- Category 1 -->
                     <div class="skill-category">
-                        <h3 class="category-title">Administración Linux</h3>
+                        <h3 class="category-title"><i class="fa-brands fa-linux"></i> Linux &amp; SysAdmin</h3>
                         <ul class="skill-list">
-                            <li>Arch Linux (Entorno diario)</li>
-                            <li>Automatización en Bash</li>
-                            <li>Configuración Hyprland / TWMs</li>
-                            <li>Systemd / Gestión de Servicios</li>
-                            <li>Monitoreo de Recursos (btop)</li>
+                            <li>Arch Linux (Entorno de trabajo diario)</li>
+                            <li>Automatización avanzada en Bash scripting</li>
+                            <li>Configuración Hyprland / TWMs &amp; Wayland</li>
+                            <li>Systemd / Creación y gestión de servicios</li>
+                            <li>Monitoreo y optimización de recursos locales</li>
                         </ul>
                     </div>
 
                     <!-- Category 2 -->
                     <div class="skill-category">
-                        <h3 class="category-title">Operaciones &amp; Cloud</h3>
+                        <h3 class="category-title"><i class="fa-solid fa-cubes"></i> Infraestructura &amp; Cloud</h3>
                         <ul class="skill-list">
-                            <li>Contenedores Docker</li>
-                            <li>Docker Compose</li>
-                            <li>Gestión básica en AWS</li>
-                            <li>Bases de datos (Postgres / SQLite)</li>
-                            <li>Despliegue continuo (Render)</li>
+                            <li>Contenedores Docker &amp; Docker Compose</li>
+                            <li>Aislamiento de servicios y bases de datos</li>
+                            <li>Despliegue automatizado en Render / VPS</li>
+                            <li>PostgreSQL &amp; SQLite a nivel de diseño</li>
+                            <li>Gestión e inicialización de BD mediante Scripts</li>
                         </ul>
                     </div>
 
                     <!-- Category 3 -->
                     <div class="skill-category">
-                        <h3 class="category-title">Redes &amp; Ciberseguridad</h3>
+                        <h3 class="category-title"><i class="fa-solid fa-shield-halved"></i> Redes &amp; Seguridad</h3>
                         <ul class="skill-list">
-                            <li>Escaneo y auditoría (Nmap)</li>
-                            <li>Mapeo de puertos locales</li>
-                            <li>Análisis UPnP y vulnerabilidades</li>
-                            <li>Divulgación Responsable</li>
-                            <li>Resolución de fallas de red</li>
+                            <li>Auditoría de red local con Nmap y Netcat</li>
+                            <li>Escaneo de vulnerabilidades UPnP</li>
+                            <li>Descubrimiento de endpoints IP huérfanos</li>
+                            <li>Resolución de fallas de enrutamiento LAN</li>
+                            <li>Políticas de divulgación responsable de fallos</li>
                         </ul>
                     </div>
 
                     <!-- Category 4 -->
                     <div class="skill-category">
-                        <h3 class="category-title">Scripting &amp; IoT</h3>
+                        <h3 class="category-title"><i class="fa-solid fa-microchip"></i> Scripting, IoT &amp; APIs</h3>
                         <ul class="skill-list">
-                            <li>C++ (Lógica ESP32 / Arduino)</li>
-                            <li>Python (Scripts utilitarios)</li>
-                            <li>Go / Kotlin (Herramientas CLI)</li>
-                            <li>Bluetooth Serial / Telemetría</li>
-                            <li>PlatformIO</li>
+                            <li>C++ (Firmware para ESP32 / Arduino)</li>
+                            <li>Go / Kotlin (Herramientas CLI y sockets)</li>
+                            <li>Python (Scripts de automatización local)</li>
+                            <li>Bluetooth Serial &amp; Telemetría hídrica</li>
+                            <li>Uso de PlatformIO para compilaciones</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Me Section -->
-        <section id="sobre-mi" class="about-section">
+        <!-- ==========================================
+             TAB 4: TERMINAL INTERACTIVA
+             ========================================== -->
+        <section id="tab-consola" class="tab-content">
+            <div class="container">
+                <div class="section-meta">ENTORNO CLI INTERACTIVO</div>
+                <h2 class="section-title">Terminal del Sistema</h2>
+                <p class="section-subtitle-text">Una consola web interactiva construida en JavaScript. Escribe comandos para interrogar al sistema y consultar información.</p>
+                
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="terminal-dot red"></span>
+                            <span class="terminal-dot yellow"></span>
+                            <span class="terminal-dot green"></span>
+                        </div>
+                        <span class="terminal-title">angel@archlinux:~</span>
+                        <div class="terminal-actions">
+                            <span class="terminal-action-btn" id="terminal-clear-btn" title="Limpiar pantalla"><i class="fa-solid fa-trash-can"></i></span>
+                        </div>
+                    </div>
+                    <div class="terminal-body" id="terminal-body">
+                        <div class="terminal-line text-muted">Arch Linux 6.8.9-arch1-1-GENERIC (tty1)</div>
+                        <div class="terminal-line text-muted">Sesión de consola iniciada. Escribe <span class="accent-text">help</span> para listar los comandos.</div>
+                        <div class="terminal-line">&nbsp;</div>
+                        <div class="terminal-history" id="terminal-history"></div>
+                        <div class="terminal-input-row">
+                            <span class="terminal-prompt">angel@archlinux:~$</span>
+                            <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" placeholder="Escribe un comando y presiona Enter...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             TAB 5: PERFIL (SOBRE MÍ)
+             ========================================== -->
+        <section id="tab-sobre-mi" class="tab-content">
             <div class="container">
                 <div class="about-layout">
                     <div class="about-text">
-                        <div class="section-meta">PERFIL</div>
+                        <div class="section-meta">PERFIL PROFESIONAL</div>
                         <h2 class="section-title">Sobre Ángel Noriega</h2>
                         <p class="about-p">
-                            <strong>Estudiante de Ingeniería en Informática | Desarrollo Backend, Linux e IoT</strong>. Mi fuerte técnico está en la administración de entornos Linux, la orquestación de sistemas, la seguridad a nivel de red y el uso de scripts de consola para automatizar tareas rutinarias.
+                            <strong>Estudiante de Ingeniería en Informática | DevOps, Linux e IoT</strong>. Mi fuerte técnico se centra en la administración de servidores Linux, la orquestación de servicios en contenedores y el desarrollo de scripts eficientes para automatizar y proteger sistemas.
                         </p>
                         <p class="about-p">
-                            Considero la programación como una herramienta para construir integraciones, desarrollar scripts funcionales e implementar firmware sobre microcontroladores (como el ESP32 para proyectos IoT), priorizando la simplicidad y la seguridad del sistema.
+                            Entiendo el desarrollo de software principalmente como una herramienta operativa: programar para conectar servicios, crear automatizaciones, compilar binarios eficientes en Go y desarrollar firmware para microcontroladores en proyectos de IoT y redes locales.
                         </p>
                     </div>
                     <div class="about-meta-box">
                         <div class="meta-row">
-                            <span class="meta-label">Estudios</span>
+                            <span class="meta-label">Educación</span>
                             <span class="meta-value">Ingeniería en Informática, INACAP</span>
                         </div>
                         <div class="meta-row">
@@ -257,23 +398,29 @@
                             <span class="meta-value">Talca, Chile</span>
                         </div>
                         <div class="meta-row">
-                            <span class="meta-label">OS Diario</span>
-                            <span class="meta-value">Arch Linux / Hyprland</span>
+                            <span class="meta-label">Sistema Diario</span>
+                            <span class="meta-value">Arch Linux / Hyprland TWM</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="meta-label">Especialidad</span>
+                            <span class="meta-value">Automatización &amp; Redes</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contacto" class="contact-section">
+        <!-- ==========================================
+             TAB 6: CONTACTO
+             ========================================== -->
+        <section id="tab-contacto" class="tab-content">
             <div class="container">
                 <div class="contact-layout">
                     <div class="contact-header">
-                        <div class="section-meta">CONECTAR</div>
-                        <h2 class="section-title">Iniciar una conversación</h2>
+                        <div class="section-meta">COMUNICACIÓN</div>
+                        <h2 class="section-title">Iniciar Conversación</h2>
                         <p class="contact-p">
-                            Ponte en contacto si necesitas automatizar tareas, orquestar servicios con Docker, configurar entornos locales o revisar la seguridad de un segmento de red.
+                            Escríbeme si necesitas automatizar flujos de trabajo, configurar contenedores Docker, optimizar sistemas Linux o auditar la seguridad de redes locales.
                         </p>
                         <div class="contact-channels">
                             <a href="mailto:4N63L@proton.me" class="channel-link"><i class="fa-solid fa-envelope"></i> 4N63L@proton.me</a>
@@ -288,12 +435,12 @@
                                 <input type="text" id="c-name" name="name" required placeholder="Tu nombre">
                             </div>
                             <div class="form-group">
-                                <label for="c-email">Email</label>
+                                <label for="c-email">Correo Electrónico</label>
                                 <input type="email" id="c-email" name="email" required placeholder="tu@correo.com">
                             </div>
                             <div class="form-group">
                                 <label for="c-message">Mensaje</label>
-                                <textarea id="c-message" name="message" rows="4" required placeholder="¿Qué necesitas automatizar o revisar?"></textarea>
+                                <textarea id="c-message" name="message" rows="4" required placeholder="¿Qué necesitas automatizar o desplegar?"></textarea>
                             </div>
                             <button type="submit" class="btn-submit" id="btn-submit">Enviar Mensaje</button>
                             <div id="form-feedback" class="form-feedback"></div>
@@ -304,10 +451,27 @@
         </section>
     </main>
 
+    <!-- Project Details Modal (DRAWER) -->
+    <div id="project-modal" class="project-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="modal-info">
+                    <span class="modal-subtitle" id="modal-project-stack">Docker &bull; Compose</span>
+                    <h3 class="modal-title" id="modal-project-title">Detalles del Proyecto</h3>
+                </div>
+                <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-project-body">
+                <!-- Dynamically populated contents -->
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container footer-container">
-            <p>&copy; 2026 Ángel Noriega. Sistemas &amp; Operaciones.</p>
+            <p>&copy; 2026 Ángel Noriega. Portafolio de Sistemas &amp; Automatización.</p>
             <div class="footer-links">
                 <a href="https://github.com/Angelds-20" target="_blank">GitHub</a>
                 <a href="https://linkedin.com/in/angel-noriega-42b122373" target="_blank">LinkedIn</a>
