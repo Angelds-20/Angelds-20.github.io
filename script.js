@@ -233,12 +233,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const commandResponses = {
         help: `Comandos disponibles:
-  <span class="cli-accent">neofetch</span> - Muestra la configuración de servidor simulada.
   <span class="cli-accent">about</span>    - Resume el perfil profesional.
   <span class="cli-accent">projects</span> - Lista los proyectos principales.
   <span class="cli-accent">skills</span>   - Detalla las habilidades y stack técnico.
   <span class="cli-accent">contact</span>  - Canales de contacto directo.
-  <span class="cli-accent">uptime</span>   - Tiempo activo de este monitor.
+  <span class="cli-accent">github</span>   - Abre mi perfil de GitHub en una pestaña nueva.
+  <span class="cli-accent">systemctl status portfolio</span> - Muestra estadísticas del portafolio.
+  <span class="cli-accent">neofetch</span> - Muestra la información del sistema simulado.
   <span class="cli-accent">clear</span>    - Limpia la pantalla de la terminal.`,
         neofetch: `               <span class="cli-accent">/\\</span>          <span class="cli-success">angel@servidor</span>
               <span class="cli-accent">/  \\</span>         <span class="cli-success">--------------</span>
@@ -271,6 +272,7 @@ con lógica eficiente y segura en el Backend.`,
   - Email:    <a href="mailto:4N63L@proton.me" class="cli-accent">4N63L@proton.me</a>
   - LinkedIn: <a href="https://linkedin.com/in/angel-noriega-42b122373" target="_blank" class="cli-accent">linkedin.com/in/angel-noriega-42b122373</a>
   - GitHub:   <a href="https://github.com/Angelds-20" target="_blank" class="cli-accent">github.com/Angelds-20</a>`,
+        github: `Abriendo perfil de GitHub <a href="https://github.com/Angelds-20" target="_blank" class="cli-accent">github.com/Angelds-20</a> en pestaña nueva...`,
         sudo: `[sudo] password for angel: 
 Sorry, try again.
 sudo: 1 incorrect password attempt`
@@ -295,6 +297,26 @@ sudo: 1 incorrect password attempt`
                         terminalHistory.innerHTML = '';
                     } else if (cleanCmd === 'uptime') {
                         responseLine.innerHTML = `Servidor Uptime: ${uptimeVal ? uptimeVal.textContent : 'Calculando...'}`;
+                        terminalHistory.appendChild(responseLine);
+                    } else if (cleanCmd === 'github') {
+                        responseLine.innerHTML = commandResponses['github'];
+                        terminalHistory.appendChild(responseLine);
+                        window.open('https://github.com/Angelds-20', '_blank');
+                    } else if (cleanCmd === 'systemctl status portfolio' || cleanCmd === 'systemctl status') {
+                        responseLine.innerHTML = `● portfolio.service - Portafolio de Angel Noriega
+     Loaded: loaded (/etc/systemd/system/portfolio.service; enabled; vendor preset: enabled)
+     Active: <span class="cli-success">active (running)</span> since Mon 2026-06-22 00:00:00 UTC; 5h ago
+   Main PID: 24890 (node)
+      Tasks: 11
+     Memory: 48.2M
+     CGroup: /system.slice/portfolio.service
+             └─24890 node server.js
+
+<span class="cli-yellow">MÉTRICAS DE EXPERIENCIA:</span>
+  - Proyectos completados:  <span class="cli-accent">15</span>
+  - Contenedores Docker:    <span class="cli-accent">5</span>
+  - Módulos IoT activos:    <span class="cli-accent">3</span>
+  - OS de Servidor:         <span class="cli-accent">Debian Linux</span>`;
                         terminalHistory.appendChild(responseLine);
                     } else if (commandResponses[cleanCmd]) {
                         responseLine.innerHTML = commandResponses[cleanCmd];
