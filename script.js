@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabLinks = document.querySelectorAll('.tab-link');
     
     function initRouter() {
-        // Read hash from URL, default to 'inicio'
         let hash = window.location.hash.replace('#', '');
         if (!hash || !['inicio', 'proyectos', 'competencias', 'consola', 'sobre-mi', 'contacto'].includes(hash)) {
             hash = 'inicio';
@@ -14,18 +13,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function switchTab(tabId) {
-        // Hide all tab contents
         document.querySelectorAll('.tab-content').forEach(tab => {
             tab.classList.remove('active');
         });
 
-        // Show active tab
         const targetTab = document.getElementById('tab-' + tabId);
         if (targetTab) {
             targetTab.classList.add('active');
         }
 
-        // Update active class on nav links
         tabLinks.forEach(link => {
             if (link.getAttribute('data-tab') === tabId) {
                 link.classList.add('active');
@@ -34,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Auto-focus terminal input if entering consola
         if (tabId === 'consola') {
             setTimeout(() => {
                 const termInput = document.getElementById('terminal-input');
@@ -43,18 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Handle clicks on tab links
     tabLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            // Let normal anchor hashing work, router will pick it up
             const tabId = link.getAttribute('data-tab');
             window.location.hash = tabId;
         });
     });
 
-    // Listen to hash changes in browser
     window.addEventListener('hashchange', initRouter);
-    // Trigger router on initial load
     initRouter();
 
 
@@ -68,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const memBar = document.getElementById('monitor-mem-bar');
 
     let startTime = Date.now();
-    // Pre-load uptime offset: 18 days, 5 hours, 43 mins, 12 seconds
     let uptimeOffset = 18 * 24 * 3600 + 5 * 3600 + 43 * 60 + 12;
 
     function updateUptime() {
@@ -84,10 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateStats() {
-        // Fluctuate CPU between 4.5% and 26.8%
-        let cpu = (Math.random() * 22.3 + 4.5).toFixed(1);
-        // Fluctuate MEM between 42.1% and 44.5%
-        let mem = (Math.random() * 2.4 + 42.1).toFixed(1);
+        let cpu = (Math.random() * 15.0 + 3.0).toFixed(1);
+        let mem = (Math.random() * 1.5 + 38.0).toFixed(1);
 
         if (cpuText && cpuBar) {
             cpuText.textContent = `${cpu}%`;
@@ -106,6 +94,124 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==========================================================================
+       PROJECTS PAGINATION & FILTERING LOGIC
+       ========================================================================== */
+    const projectsContainer = document.getElementById('projects-container');
+    const paginationControls = document.getElementById('pagination-controls');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    let allProjectCards = [];
+    let currentPage = 1;
+    let currentFilter = 'all';
+    const PROJECTS_PER_PAGE = 4;
+
+    // Load static HTML project cards into memory on load
+    if (projectsContainer) {
+        const cards = projectsContainer.querySelectorAll('.project-card');
+        cards.forEach(card => {
+            allProjectCards.push(card);
+        });
+        
+        // Initial render
+        updateProjectsView();
+    }
+
+    // Filter handlers
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            currentFilter = btn.getAttribute('data-filter');
+            currentPage = 1; // Reset to page 1 on filter
+            updateProjectsView();
+        });
+    });
+
+    function updateProjectsView() {
+        if (!projectsContainer) return;
+
+        // Clear container
+        projectsContainer.innerHTML = '';
+
+        // Filter cards in memory
+        const filteredCards = allProjectCards.filter(card => {
+            if (currentFilter === 'all') return true;
+            return card.getAttribute('data-category') === currentFilter;
+        });
+
+        // Calculate pages
+        const totalPages = Math.ceil(filteredCards.length / PROJECTS_PER_PAGE);
+        if (currentPage > totalPages && totalPages > 0) {
+            currentPage = totalPages;
+        }
+
+        // Slice cards
+        const startIndex = (currentPage - 1) * PROJECTS_PER_PAGE;
+        const endIndex = startIndex + PROJECTS_PER_PAGE;
+        const pageCards = filteredCards.slice(startIndex, endIndex);
+
+        // Append to UI
+        if (pageCards.length === 0) {
+            projectsContainer.innerHTML = '<div class="no-projects-message">No se encontraron proyectos en esta categoría.</div>';
+        } else {
+            pageCards.forEach(card => {
+                projectsContainer.appendChild(card);
+            });
+        }
+
+        // Render Pagination Controls
+        renderPagination(totalPages);
+    }
+
+    function renderPagination(totalPages) {
+        if (!paginationControls) return;
+        paginationControls.innerHTML = '';
+
+        if (totalPages <= 1) return; // No pagination needed
+
+        // Prev Button
+        const prevBtn = document.createElement('button');
+        prevBtn.className = `page-btn ${currentPage === 1 ? 'disabled' : ''}`;
+        prevBtn.innerHTML = '<i class="fa-solid fa-angle-left"></i>';
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                updateProjectsView();
+                window.scrollTo({ top: document.getElementById('tab-proyectos').offsetTop - 20, behavior: 'smooth' });
+            }
+        });
+        paginationControls.appendChild(prevBtn);
+
+        // Page Number Buttons
+        for (let i = 1; i <= totalPages; i++) {
+            const pageBtn = document.createElement('button');
+            pageBtn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+            pageBtn.textContent = i;
+            pageBtn.addEventListener('click', () => {
+                currentPage = i;
+                updateProjectsView();
+                window.scrollTo({ top: document.getElementById('tab-proyectos').offsetTop - 20, behavior: 'smooth' });
+            });
+            paginationControls.appendChild(pageBtn);
+        }
+
+        // Next Button
+        const nextBtn = document.createElement('button');
+        nextBtn.className = `page-btn ${currentPage === totalPages ? 'disabled' : ''}`;
+        nextBtn.innerHTML = '<i class="fa-solid fa-angle-right"></i>';
+        nextBtn.addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                updateProjectsView();
+                window.scrollTo({ top: document.getElementById('tab-proyectos').offsetTop - 20, behavior: 'smooth' });
+            }
+        });
+        paginationControls.appendChild(nextBtn);
+    }
+
+
+    /* ==========================================================================
        INTERACTIVE TERMINAL SIMULATOR
        ========================================================================== */
     const terminalInput = document.getElementById('terminal-input');
@@ -113,7 +219,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const terminalBody = document.getElementById('terminal-body');
     const terminalClearBtn = document.getElementById('terminal-clear-btn');
 
-    // Keep input focused when clicking inside terminal window
     if (terminalBody) {
         terminalBody.addEventListener('click', () => {
             if (terminalInput) terminalInput.focus();
@@ -128,46 +233,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const commandResponses = {
         help: `Comandos disponibles:
-  <span class="cli-accent">neofetch</span> - Muestra la información del sistema.
-  <span class="cli-accent">about</span>    - Lee el extracto del perfil profesional.
-  <span class="cli-accent">projects</span> - Lista los proyectos de ingeniería destacados.
-  <span class="cli-accent">skills</span>   - Muestra las competencias agrupadas.
-  <span class="cli-accent">contact</span>  - Datos de contacto y redes sociales.
-  <span class="cli-accent">uptime</span>   - Tiempo de actividad del servidor local.
-  <span class="cli-accent">clear</span>    - Limpia la pantalla.`,
-        neofetch: `               <span class="cli-accent">/\\</span>          <span class="cli-success">angel@archlinux</span>
-              <span class="cli-accent">/  \\</span>         <span class="cli-success">---------------</span>
-             <span class="cli-accent">/\\   \\</span>        OS: Arch Linux x86_64
-            <span class="cli-accent">/  __  \\</span>       Kernel: 6.8.9-arch1-1
+  <span class="cli-accent">neofetch</span> - Muestra la configuración de servidor simulada.
+  <span class="cli-accent">about</span>    - Resume el perfil profesional.
+  <span class="cli-accent">projects</span> - Lista los proyectos principales.
+  <span class="cli-accent">skills</span>   - Detalla las habilidades y stack técnico.
+  <span class="cli-accent">contact</span>  - Canales de contacto directo.
+  <span class="cli-accent">uptime</span>   - Tiempo activo de este monitor.
+  <span class="cli-accent">clear</span>    - Limpia la pantalla de la terminal.`,
+        neofetch: `               <span class="cli-accent">/\\</span>          <span class="cli-success">angel@servidor</span>
+              <span class="cli-accent">/  \\</span>         <span class="cli-success">--------------</span>
+             <span class="cli-accent">/\\   \\</span>        OS: Debian GNU/Linux x86_64
+            <span class="cli-accent">/  __  \\</span>       Kernel: 6.1.0-21-amd64
            <span class="cli-accent">/  (  )  \\</span>      Uptime: ${uptimeVal ? uptimeVal.textContent : '18d 05h 43m'}
-          <span class="cli-accent">/  /    \\  \\</span>     Shell: bash 5.2.26
-         <span class="cli-accent">/  /      \\  \\</span>    WM: Hyprland (Wayland)
-        <span class="cli-accent">/_ /        \\ _\\</span>   Terminal: Web-TTY (JavaScript)
-                           CPU: ESP32 &amp; Server Core-i5
-                           RAM: 4.8 GiB / 16.0 GiB (30%)`,
+          <span class="cli-accent">/  /    \\  \\</span>     Shell: bash 5.2.15
+         <span class="cli-accent">/  /      \\  \\</span>    Server: Nginx / Gunicorn
+        <span class="cli-accent">/_ /        \\ _\\</span>   Terminal: Web-Console (JS)
+                           CPU: Intel(R) Core(TM) i5 (Dev Server)
+                           RAM: 6.2 GiB / 16.0 GiB (38%)`,
         about: `<span class="cli-yellow">[Perfil de Ángel Noriega]</span>
-Estudiante de Ingeniería en Informática con foco en SysAdmin, DevOps y redes.
-Concibo el desarrollo como una vía para automatizar procesos locales y orquestar infraestructuras seguras.
-Sistemas de cabecera: Arch Linux diario, entornos de terminal modular.`,
-        projects: `<span class="cli-yellow">[Proyectos Destacados]</span>
-  1. <span class="cli-accent">Fundación Bon Sens</span>  - Dockerizacion e infraestructura transaccional local.
-  2. <span class="cli-accent">Punto de Venta</span>      - Backend e integración barcode USB.
-  3. <span class="cli-accent">ClearDose (IoT)</span>     - Firmware C++ en ESP32 para telemetría hídrica.
-  4. <span class="cli-accent">QRSend</span>              - Transmisor de datos TCP en Go por red local.
-  5. <span class="cli-accent">Netscan</span>             - Auditor de red y escáner modular en Bash.`,
-        skills: `<span class="cli-yellow">[Áreas de Especialidad]</span>
-  - <span class="cli-accent">Administración</span>: Arch Linux, Bash scripting, Systemd, gestión TWM.
-  - <span class="cli-accent">Cloud &amp; DevOps</span>: Docker, Compose, PostgreSQL, VPS deployments.
-  - <span class="cli-accent">Seguridad</span>: Auditorías de puertos (Nmap), sockets de datos, auditorías UPnP.
-  - <span class="cli-accent">IoT &amp; Backend</span>: C++ para microcontroladores, binarios Go, Django APIs.`,
+Estudiante de Ingeniería en Informática con sólida formación en desarrollo Full-Stack,
+despliegues de servidores Linux y telemetría de sistemas embebidos (ESP32).
+Busca crear soluciones integrales combinando interfaces de usuario fluidas en el Frontend
+con lógica eficiente y segura en el Backend.`,
+        projects: `<span class="cli-yellow">[Proyectos Principales]</span>
+  1. <span class="cli-accent">Punto de Venta</span>      - React SPA, Django backend y barcode control.
+  2. <span class="cli-accent">Fundación Bon Sens</span>  - DevOps, Docker y Compose local.
+  3. <span class="cli-accent">Telemetry Dashboard</span> - React, Node.js y flujos WebSockets en vivo.
+  4. <span class="cli-accent">ClearDose (IoT)</span>     - C++ ESP32 interrupt firmware &amp; Android Kotlin App.
+  5. <span class="cli-accent">QRSend</span>              - Go socket file streams en red LAN.
+  6. <span class="cli-accent">Netscan</span>             - Bash script auditor de routers locales.`,
+        skills: `<span class="cli-yellow">[Stack &amp; Habilidades]</span>
+  - <span class="cli-accent">Frontend</span>: React, JavaScript ES6, HTML5, CSS3 responsive.
+  - <span class="cli-accent">Backend</span>: Django REST framework, Go (Golang), Node.js, PHP, Postgres.
+  - <span class="cli-accent">DevOps</span>: Docker, Docker Compose, Linux, Bash Scripting, Systemd.
+  - <span class="cli-accent">IoT</span>: C++ (ESP32/Arduino), Android (Kotlin), Bluetooth Serial.`,
         contact: `<span class="cli-yellow">[Canales de Comunicación]</span>
-  - Correo Electrónico: <a href="mailto:4N63L@proton.me" class="cli-accent">4N63L@proton.me</a>
-  - LinkedIn:           <a href="https://linkedin.com/in/angel-noriega-42b122373" target="_blank" class="cli-accent">linkedin.com/in/angel-noriega-42b122373</a>
-  - GitHub:             <a href="https://github.com/Angelds-20" target="_blank" class="cli-accent">github.com/Angelds-20</a>`,
+  - Email:    <a href="mailto:4N63L@proton.me" class="cli-accent">4N63L@proton.me</a>
+  - LinkedIn: <a href="https://linkedin.com/in/angel-noriega-42b122373" target="_blank" class="cli-accent">linkedin.com/in/angel-noriega-42b122373</a>
+  - GitHub:   <a href="https://github.com/Angelds-20" target="_blank" class="cli-accent">github.com/Angelds-20</a>`,
         sudo: `[sudo] password for angel: 
 Sorry, try again.
-Sorry, try again.
-sudo: 3 incorrect password attempts`
+sudo: 1 incorrect password attempt`
     };
 
     if (terminalInput) {
@@ -176,10 +282,9 @@ sudo: 3 incorrect password attempts`
                 const commandText = terminalInput.value.trim();
                 const cleanCmd = commandText.toLowerCase();
 
-                // Add prompt + input to history
                 const promptLine = document.createElement('div');
                 promptLine.className = 'terminal-line';
-                promptLine.innerHTML = `<span class="terminal-prompt">angel@archlinux:~$</span> ${commandText}`;
+                promptLine.innerHTML = `<span class="terminal-prompt">angel@servidor:~$</span> ${commandText}`;
                 terminalHistory.appendChild(promptLine);
 
                 if (cleanCmd !== '') {
@@ -189,18 +294,17 @@ sudo: 3 incorrect password attempts`
                     if (cleanCmd === 'clear') {
                         terminalHistory.innerHTML = '';
                     } else if (cleanCmd === 'uptime') {
-                        responseLine.innerHTML = `Uptime del sistema: ${uptimeVal ? uptimeVal.textContent : 'Calculando...'}`;
+                        responseLine.innerHTML = `Servidor Uptime: ${uptimeVal ? uptimeVal.textContent : 'Calculando...'}`;
                         terminalHistory.appendChild(responseLine);
                     } else if (commandResponses[cleanCmd]) {
                         responseLine.innerHTML = commandResponses[cleanCmd];
                         terminalHistory.appendChild(responseLine);
                     } else {
-                        responseLine.innerHTML = `bash: comando no encontrado: <span class="cli-red">${commandText}</span>. Escribe <span class="cli-accent">help</span> para ver las opciones.`;
+                        responseLine.innerHTML = `bash: comando no encontrado: <span class="cli-red">${commandText}</span>. Escribe <span class="cli-accent">help</span> para opciones.`;
                         terminalHistory.appendChild(responseLine);
                     }
                 }
 
-                // Reset and scroll down
                 terminalInput.value = '';
                 terminalBody.scrollTop = terminalBody.scrollHeight;
             }
@@ -209,18 +313,48 @@ sudo: 3 incorrect password attempts`
 
 
     /* ==========================================================================
-       TECHNICAL PROJECT MODAL (DRAWER) DATA
+       TECHNICAL PROJECT MODAL (DRAWER) DATA & DELEGATION
        ========================================================================== */
     const projectDetails = {
+        pos: {
+            stack: "Django &bull; React &bull; SQLite &bull; Python",
+            title: "Punto de Venta e Inventarios",
+            text: "Aplicación web integrada que maneja ventas y alertas de existencias en tiempo real. Dispone de un frontend de usuario rápido en React y un backend transaccional seguro programado en Django.",
+            codeHeader: "views.py (Django REST Framework - Stock Alertas)",
+            code: `# -*- coding: utf-8 -*-
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from django.shortcuts import get_object_or_404
+from .models import Product
+
+@api_view(['POST'])
+def registrar_venta(request, product_id):
+    producto = get_object_or_404(Product, pk=product_id)
+    cantidad = int(request.data.get('cantidad', 1))
+    
+    # Validar existencias críticas
+    if producto.stock - cantidad <= producto.limite_critico:
+        producto.alerta_stock = True
+        
+    producto.stock -= cantidad
+    producto.save()
+    
+    return Response({
+        'status': 'success',
+        'producto': producto.nombre,
+        'nuevo_stock': producto.stock,
+        'alerta': producto.alerta_stock
+    })`
+        },
         bonsens: {
             stack: "Docker &bull; Compose &bull; PostgreSQL &bull; PHP",
             title: "Fundación Bon Sens",
-            text: "Orquestación completa del ambiente local de desarrollo y simulación para la plataforma web transaccional. Implementa contenedores separados y securizados que garantizan la consistencia de los datos.",
-            codeHeader: "docker-compose.yml (Estructura de Orquestación)",
+            text: "Orquestación de infraestructura local para la plataforma web transaccional de la fundación. Utiliza Docker para compilar contenedores aislados que simulan el entorno exacto de producción, con volumes persistentes.",
+            codeHeader: "docker-compose.yml (Definición de Servicios)",
             code: `version: '3.8'
 
 services:
-  # Servidor Web Apache + PHP
+  # Servidor Apache y PHP
   web:
     image: php:8.2-apache
     container_name: bonsens_web
@@ -232,7 +366,7 @@ services:
       - db
     restart: always
 
-  # Motor de Base de Datos PostgreSQL
+  # Motor PostgreSQL de Base de Datos
   db:
     image: postgres:15-alpine
     container_name: bonsens_db
@@ -248,48 +382,57 @@ services:
 volumes:
   pgdata:`
         },
-        pos: {
-            stack: "Django &bull; React &bull; SQLite &bull; Python",
-            title: "Punto de Venta e Inventarios",
-            text: "El sistema incorpora validación rápida de stock y control de existencias críticas. Escucha señales directas de lectores barcode configurados en emulación de teclado USB.",
-            codeHeader: "views.py (Django REST Framework - Stock Alert)",
-            code: `# -*- coding: utf-8 -*-
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from django.shortcuts import get_object_or_404
-from .models import Product
+        dashboard_iot: {
+            stack: "React &bull; Node.js &bull; WebSockets &bull; Tailwind",
+            title: "Dashboard de Telemetría Real-time",
+            text: "Plataforma web para monitorear el caudal hídrico registrado por sensores físicos. Emplea WebSockets para inyectar flujos binarios al gráfico reactivo del Frontend sin retraso.",
+            codeHeader: "TelemetryView.jsx (Consumo WebSocket en React)",
+            code: `import React, { useEffect, useState } from 'react';
+import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
 
-@api_view(['POST'])
-def registrar_venta(request, product_id):
-    producto = get_object_or_404(Product, pk=product_id)
-    cantidad = int(request.data.get('cantidad', 1))
+export default function TelemetryView() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // Abrir canal de datos directo al servidor local
+    const ws = new WebSocket('ws://192.168.1.50:8080/telemetry');
     
-    # Comprobar niveles críticos antes de decrementar
-    if producto.stock - cantidad <= producto.limite_critico:
-        # Disparar alerta en dashboard / logs
-        producto.alerta_stock = True
-        
-    producto.stock -= cantidad
-    producto.save()
+    ws.onmessage = (event) => {
+      const payload = JSON.parse(event.data);
+      // Mantener solo los últimos 20 puntos en el gráfico
+      setData(prev => [...prev.slice(-19), {
+        time: new Date().toLocaleTimeString(),
+        flow: payload.flowRate
+      }]);
+    };
     
-    return Response({
-        'status': 'success',
-        'producto': producto.nombre,
-        'nuevo_stock': producto.stock,
-        'alerta': producto.alerta_stock
-    })`
+    return () => ws.close();
+  }, []);
+
+  return (
+    <div className="chart-panel">
+      <h3>Flujo en Tiempo Real (L/min)</h3>
+      <LineChart width={500} height={240} data={data}>
+        <XAxis dataKey="time" />
+        <YAxis />
+        <Tooltip />
+        <Line type="monotone" dataKey="flow" stroke="#38bdf8" dot={false} />
+      </LineChart>
+    </div>
+  );
+}`
         },
         cleardose: {
             stack: "C++ (Arduino) &bull; Bluetooth &bull; ESP32 Interrupts",
             title: "Automatización de Caudal IoT",
-            text: "Firmware desarrollado en C++ utilizando interrupciones por hardware en el pin digital conectado al sensor de flujo. Permite medir el volumen exacto de caudal en mililitros sin interrumpir los hilos de comunicación Bluetooth.",
-            codeHeader: "flow_control.ino (ESP32 Interrupt & Solenoid Control)",
-            code: `// Control de electroválvula mediante pulsos de caudalímetro
+            text: "Firmware desarrollado en C++ utilizando rutinas de interrupción por hardware para contar los pulsos mecánicos del caudalímetro, permitiendo cortar el paso de agua con relés cuando se alcanza la meta de mililitros.",
+            codeHeader: "flow_sensor.ino (Lógica de Interrupción ESP32)",
+            code: `// Medición de flujo usando interrupciones
 #include "BluetoothSerial.h"
 
 BluetoothSerial ESP_BT;
-const byte FLOW_PIN = 18;      // Pin de interrupción física
-const byte RELAY_PIN = 19;     // Control del relé de la electroválvula
+const byte FLOW_PIN = 18;      // Pin de interrupción
+const byte RELAY_PIN = 19;     // Control relé solenoide
 volatile long pulsoCount = 0;
 long targetPulsos = 0;
 
@@ -301,7 +444,7 @@ void setup() {
   pinMode(FLOW_PIN, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(FLOW_PIN), countPulses, FALLING);
   pinMode(RELAY_PIN, OUTPUT);
-  digitalWrite(RELAY_PIN, LOW); // Electroválvula cerrada inicialmente
+  digitalWrite(RELAY_PIN, LOW); // Electroválvula apagada
   
   ESP_BT.begin("ESP32_Caudal");
 }
@@ -311,15 +454,14 @@ void loop() {
     String cmd = ESP_BT.readStringUntil('\\n');
     if (cmd.startsWith("START:")) {
       long ml = cmd.substring(6).toInt();
-      targetPulsos = ml * 2.25; // Factor de conversión a pulsos
+      targetPulsos = ml * 2.25; // Constante de calibración
       pulsoCount = 0;
-      digitalWrite(RELAY_PIN, HIGH); // Abrir electroválvula
+      digitalWrite(RELAY_PIN, HIGH); // Abrir paso
     }
   }
   
-  // Cerrar la válvula si se alcanza el caudal
   if (targetPulsos > 0 && pulsoCount >= targetPulsos) {
-    digitalWrite(RELAY_PIN, LOW); // Cerrar solenoide
+    digitalWrite(RELAY_PIN, LOW); // Cerrar paso automáticamente
     ESP_BT.println("STATUS:COMPLETE");
     targetPulsos = 0;
   }
@@ -328,20 +470,19 @@ void loop() {
         qrsend: {
             stack: "Go (Golang) &bull; WebSockets &bull; LAN Networking",
             title: "QRSend (Servidor LAN)",
-            text: "Un servidor de red inalámbrico escrito en Go. Escucha conexiones TCP y actualiza el buffer de datos mediante conexiones WebSocket directas, logrando transferencias locales de alta velocidad.",
-            codeHeader: "stream.go (Go HTTP WebSocket Upgrader)",
+            text: "Servicio compilado en un binario portable autocontenido de Go. Genera un servidor web y actualiza bloques de datos binarios por WebSockets en red de área local para transferencias rápidas sin salida a internet.",
+            codeHeader: "stream.go (WebSocket Stream Handler en Go)",
             code: `package main
 
 import (
-	"fmt"
 	"net/http"
 	"os"
 	"github.com/gorilla/websocket"
 )
 
 var upgrader = websocket.Upgrader{
-	ReadBufferSize:  1024 * 64,
-	WriteBufferSize: 1024 * 64,
+	ReadBufferSize:  65536,
+	WriteBufferSize: 65536,
 	CheckOrigin:     func(r *http.Request) bool { return true },
 }
 
@@ -352,6 +493,7 @@ func handleFileStream(w http.ResponseWriter, r *http.Request) {
 	}
 	defer conn.Close()
 
+	// Abrir archivo para ir adjuntando los bytes entrantes
 	file, _ := os.OpenFile("received_file", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
 	defer file.Close()
 
@@ -361,8 +503,7 @@ func handleFileStream(w http.ResponseWriter, r *http.Request) {
 			break
 		}
 		if messageType == websocket.BinaryMessage {
-			// Escribir el buffer binario directo al archivo
-			file.Write(p)
+			file.Write(p) // Escribir chunk directo
 		}
 	}
 }`
@@ -413,7 +554,7 @@ echo -e "\\n\\e[1;33m[+] Escaneo finalizado.\\e[0m"`
         `;
 
         modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Block background scroll
+        document.body.style.overflow = 'hidden';
     }
 
     function closeModal() {
@@ -426,16 +567,19 @@ echo -e "\\n\\e[1;33m[+] Escaneo finalizado.\\e[0m"`
         return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     }
 
-    // Attach click listeners to all details buttons
-    document.querySelectorAll('.card-detail-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const projId = btn.getAttribute('data-project');
-            openModal(projId);
+    // Dynamic Event Delegation for "Detalles Técnicos" buttons
+    if (projectsContainer) {
+        projectsContainer.addEventListener('click', (e) => {
+            const btn = e.target.closest('.card-detail-btn');
+            if (btn) {
+                const projId = btn.getAttribute('data-project');
+                openModal(projId);
+            }
         });
-    });
+    }
 
     if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
-    // Close modal clicking outside the container
+    
     if (modal) {
         modal.addEventListener('click', (e) => {
             if (e.target.classList.contains('modal-overlay')) {
@@ -446,7 +590,7 @@ echo -e "\\n\\e[1;33m[+] Escaneo finalizado.\\e[0m"`
 
 
     /* ==========================================================================
-       CONTACT FORM SUBMITTER (FormSubmit.co AJAX Integration)
+       CONTACT FORM SUBMITTER
        ========================================================================== */
     const contactForm = document.getElementById('portfolio-contact-form');
     const formFeedback = document.getElementById('form-feedback');
@@ -460,13 +604,11 @@ echo -e "\\n\\e[1;33m[+] Escaneo finalizado.\\e[0m"`
             const message = document.getElementById('c-message').value;
             const submitBtn = document.getElementById('btn-submit');
 
-            // Set loading state
             submitBtn.disabled = true;
             submitBtn.textContent = 'Enviando...';
             formFeedback.textContent = '';
             formFeedback.className = 'form-feedback';
 
-            // Send AJAX request
             fetch('https://formsubmit.co/ajax/4N63L@proton.me', {
                 method: 'POST',
                 headers: {
