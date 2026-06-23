@@ -269,7 +269,7 @@ con lógica eficiente y segura en el Backend.`,
   - <span class="cli-accent">DevOps</span>: Docker, Docker Compose, Linux, Bash Scripting, Systemd.
   - <span class="cli-accent">IoT</span>: C++ (ESP32/Arduino), Android (Kotlin), Bluetooth Serial.`,
         contact: `<span class="cli-yellow">[Canales de Comunicación]</span>
-  - Email:    <a href="mailto:4N63L@proton.me" class="cli-accent">4N63L@proton.me</a>
+  - Email:    <a href="mailto:3N63L@proton.me" class="cli-accent">3N63L@proton.me</a>
   - LinkedIn: <a href="https://linkedin.com/in/angel-noriega-42b122373" target="_blank" class="cli-accent">linkedin.com/in/angel-noriega-42b122373</a>
   - GitHub:   <a href="https://github.com/Angelds-20" target="_blank" class="cli-accent">github.com/Angelds-20</a>`,
         github: `Abriendo perfil de GitHub <a href="https://github.com/Angelds-20" target="_blank" class="cli-accent">github.com/Angelds-20</a> en pestaña nueva...`,
@@ -631,7 +631,7 @@ echo -e "\\n\\e[1;33m[+] Escaneo finalizado.\\e[0m"`
             formFeedback.textContent = '';
             formFeedback.className = 'form-feedback';
 
-            fetch('https://formsubmit.co/ajax/4N63L@proton.me', {
+            fetch('https://formsubmit.co/ajax/3N63L@proton.me', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -660,7 +660,7 @@ echo -e "\\n\\e[1;33m[+] Escaneo finalizado.\\e[0m"`
                 }, 6000);
             })
             .catch(error => {
-                formFeedback.textContent = 'Error al enviar por AJAX. Escribe directamente a 4N63L@proton.me';
+                formFeedback.textContent = 'Error al enviar por AJAX. Escribe directamente a 3N63L@proton.me';
                 formFeedback.className = 'form-feedback error';
             })
             .finally(() => {
