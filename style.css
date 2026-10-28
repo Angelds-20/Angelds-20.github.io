@@ -43,13 +43,13 @@ html {
 }
 
 body {
-    background-color: var(--bg-black);
+    background-color: #ffffff;
     /* Subtle technical grid background */
     background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.012) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+        linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
     background-size: 40px 40px;
-    color: var(--text-body);
+    color: #18181b;
     font-family: var(--font-sans);
     line-height: 1.6;
     overflow-x: hidden;
@@ -1391,7 +1391,7 @@ a {
     }
 
     .main-content {
-        margin-top: 110px; /* Offset the taller vertical mobile navbar */
+        margin-top: 0;
     }
 
     .tab-content {
@@ -1415,7 +1415,7 @@ a {
 
 @media (max-width: 480px) {
     .main-content {
-        margin-top: 115px;
+        margin-top: 0;
     }
 
     .hero-title {
@@ -1648,15 +1648,15 @@ a {
     padding-bottom: 0 !important;
 }
 
-/* Hero Canvas - Warm Editorial Off-White */
+/* Hero Canvas - Clean Architectural Editorial */
 .gazu-hero {
-    background-color: #f4f4f5;
+    background-color: #ffffff;
     background-image: 
-        radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.95) 0%, rgba(244, 244, 245, 0.7) 70%),
-        linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        radial-gradient(circle at 50% 20%, rgba(248, 250, 252, 0.95) 0%, rgba(255, 255, 255, 1) 100%),
+        linear-gradient(to right, rgba(0, 0, 0, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
     background-size: 100% 100%, 48px 48px, 48px 48px;
-    padding: 60px 24px 90px 24px;
+    padding: 70px 24px 80px 24px;
     position: relative;
     overflow: hidden;
     border-bottom: 1px solid #e4e4e7;
@@ -1673,12 +1673,12 @@ a {
 }
 
 .gazu-manifesto {
-    max-width: 320px;
+    max-width: 260px;
     z-index: 2;
 }
 .gazu-manifesto-sub {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     letter-spacing: 2px;
     color: #71717a;
     font-weight: 700;
@@ -1686,19 +1686,19 @@ a {
 }
 .gazu-manifesto-title {
     font-family: 'Syne', var(--font-sans), sans-serif;
-    font-size: 1.45rem;
-    font-weight: 900;
-    line-height: 1.15;
+    font-size: 1.35rem;
+    font-weight: 800;
+    line-height: 1.2;
     letter-spacing: -0.02em;
     color: #09090b;
-    margin-top: 8px;
+    margin-top: 6px;
 }
 
-/* Center Monumental Typography */
+/* Center Monumental Typography (Clean, Sin badges) */
 .gazu-title-wrap {
     text-align: center;
     position: relative;
-    margin: 40px 0 20px 0;
+    margin: 36px 0;
     z-index: 1;
 }
 .gazu-monumental-text {
@@ -1711,37 +1711,10 @@ a {
     color: #09090b;
     user-select: none;
     margin: 0;
-    text-shadow: 0 10px 40px rgba(0,0,0,0.06);
-}
-.gazu-emblem-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: #09090b;
-    color: #ffffff;
-    padding: 9px 22px;
-    border-radius: 9999px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-    margin-top: -18px;
-    position: relative;
-    z-index: 3;
-    border: 1px solid rgba(255,255,255,0.15);
-}
-.emblem-code {
-    font-family: var(--font-mono);
-    font-weight: 800;
-    font-size: 0.95rem;
-    color: #38bdf8;
-}
-.emblem-label {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 1.5px;
-    font-weight: 700;
-    color: #f4f4f5;
+    text-shadow: 0 10px 40px rgba(0,0,0,0.04);
 }
 
-/* Lower Flanking */
+/* Lower Flanking (Minimal) */
 .gazu-hero-meta {
     position: absolute;
     bottom: 0;
@@ -1749,29 +1722,22 @@ a {
     text-align: right;
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    max-width: 320px;
+    gap: 4px;
     z-index: 2;
 }
 .meta-season {
     font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 800;
     color: #09090b;
     letter-spacing: 1.5px;
 }
-.meta-tagline {
+.meta-institution {
     font-size: 0.75rem;
     font-family: var(--font-mono);
-    color: #52525b;
-    line-height: 1.45;
-}
-.meta-institution {
-    font-size: 0.78rem;
-    font-family: var(--font-mono);
-    font-weight: 800;
-    color: #09090b;
-    margin-top: 4px;
+    font-weight: 700;
+    color: #71717a;
+    letter-spacing: 1px;
 }
 
 .gazu-hero-actions {
@@ -1802,7 +1768,7 @@ a {
     background: #27272a;
     border-color: #27272a;
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 .btn-gazu-outline {
     background: transparent;
@@ -1827,65 +1793,66 @@ a {
     transform: translateY(-2px);
 }
 
-/* Pitch Black High-Contrast Bar */
-.gazu-black-bar {
-    background: #000000;
-    color: #ffffff;
+/* Clean Editorial Pillars Bar (Limpio, Sin negro pesado) */
+.gazu-pillars-bar {
+    background: #fafafa;
+    color: #09090b;
     padding: 70px 0;
-    border-bottom: 1px solid #1f2937;
+    border-bottom: 1px solid #e4e4e7;
 }
-.gazu-black-grid {
+.gazu-pillars-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 36px;
+    gap: 40px;
 }
-.gazu-black-col {
-    border-left: 1px solid rgba(255, 255, 255, 0.15);
-    padding-left: 28px;
+.gazu-pillar-col {
+    border-left: 1px solid #e4e4e7;
+    padding-left: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-.black-col-header {
+.pillar-col-header {
     display: flex;
     align-items: baseline;
     gap: 12px;
     margin-bottom: 14px;
 }
-.black-col-num {
+.pillar-col-num {
     font-family: var(--font-mono);
-    font-size: 1.2rem;
-    color: #38bdf8;
+    font-size: 1.15rem;
+    color: #0284c7;
     font-weight: 800;
 }
-.black-col-title {
+.pillar-col-title {
     font-family: 'Syne', sans-serif;
-    font-size: 1.45rem;
+    font-size: 1.4rem;
     font-weight: 800;
     letter-spacing: -0.02em;
-    color: #ffffff;
+    color: #09090b;
 }
-.black-col-desc {
-    font-size: 0.9rem;
-    color: #a1a1aa;
+.pillar-col-desc {
+    font-size: 0.92rem;
+    color: #52525b;
     line-height: 1.65;
     margin-bottom: 24px;
 }
-.black-col-link {
+.pillar-col-link {
     font-family: var(--font-mono);
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 1px;
-    color: #ffffff;
+    color: #09090b;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     margin-top: auto;
+    text-decoration: none;
     transition: all 0.2s ease;
 }
-.black-col-link:hover {
-    color: #38bdf8;
-    padding-left: 6px;
+.pillar-col-link:hover {
+    color: #0284c7;
+    transform: translateX(4px);
 }
 
 /* Featured Editorial Showcase */
@@ -2037,7 +2004,7 @@ a {
         flex-wrap: wrap;
         gap: 16px;
     }
-    .gazu-black-grid {
+    .gazu-pillars-grid {
         grid-template-columns: 1fr;
         gap: 28px;
     }

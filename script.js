@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function initRouter() {
         let hash = window.location.hash.replace('#', '');
-        if (!hash || !['inicio', 'proyectos', 'competencias', 'consola', 'sobre-mi', 'contacto'].includes(hash)) {
+        if (!hash || !['inicio', 'proyectos', 'competencias', 'sobre-mi', 'contacto'].includes(hash)) {
             hash = 'inicio';
         }
         switchTab(hash);
@@ -29,13 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.classList.remove('active');
             }
         });
-
-        if (tabId === 'consola') {
-            setTimeout(() => {
-                const termInput = document.getElementById('terminal-input');
-                if (termInput) termInput.focus();
-            }, 100);
-        }
     }
 
     tabLinks.forEach(link => {
@@ -208,130 +201,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         paginationControls.appendChild(nextBtn);
-    }
-
-
-    /* ==========================================================================
-       INTERACTIVE TERMINAL SIMULATOR
-       ========================================================================== */
-    const terminalInput = document.getElementById('terminal-input');
-    const terminalHistory = document.getElementById('terminal-history');
-    const terminalBody = document.getElementById('terminal-body');
-    const terminalClearBtn = document.getElementById('terminal-clear-btn');
-
-    if (terminalBody) {
-        terminalBody.addEventListener('click', () => {
-            if (terminalInput) terminalInput.focus();
-        });
-    }
-
-    if (terminalClearBtn) {
-        terminalClearBtn.addEventListener('click', () => {
-            if (terminalHistory) terminalHistory.innerHTML = '';
-        });
-    }
-
-    const commandResponses = {
-        help: `Comandos disponibles:
-  <span class="cli-accent">about</span>    - Resume el perfil profesional.
-  <span class="cli-accent">projects</span> - Lista los proyectos principales.
-  <span class="cli-accent">skills</span>   - Detalla las habilidades y stack técnico.
-  <span class="cli-accent">contact</span>  - Canales de contacto directo.
-  <span class="cli-accent">github</span>   - Abre mi perfil de GitHub en una pestaña nueva.
-  <span class="cli-accent">systemctl status portfolio</span> - Muestra estadísticas del portafolio.
-  <span class="cli-accent">neofetch</span> - Muestra la información del sistema simulado.
-  <span class="cli-accent">clear</span>    - Limpia la pantalla de la terminal.`,
-        neofetch: `               <span class="cli-accent">/\\</span>          <span class="cli-success">angel@servidor</span>
-              <span class="cli-accent">/  \\</span>         <span class="cli-success">--------------</span>
-             <span class="cli-accent">/\\   \\</span>        OS: Debian GNU/Linux x86_64
-            <span class="cli-accent">/  __  \\</span>       Kernel: 6.1.0-21-amd64
-           <span class="cli-accent">/  (  )  \\</span>      Uptime: ${uptimeVal ? uptimeVal.textContent : '18d 05h 43m'}
-          <span class="cli-accent">/  /    \\  \\</span>     Shell: bash 5.2.15
-         <span class="cli-accent">/  /      \\  \\</span>    Server: Nginx / Gunicorn
-        <span class="cli-accent">/_ /        \\ _\\</span>   Terminal: Web-Console (JS)
-                           CPU: Intel(R) Core(TM) i5 (Dev Server)
-                           RAM: 6.2 GiB / 16.0 GiB (38%)`,
-        about: `<span class="cli-yellow">[Perfil de Ángel Noriega]</span>
-Ingeniero en Informática (INACAP Talca) | Desarrollador Full-Stack & DevOps.
-Especializado en arquitectura de software SaaS, plataformas web reactivas (React/Vite),
-servicios backend robustos (Go/Python/PHP) e infraestructura en servidores Linux (Docker/Nginx).
-Desarrollador líder de la plataforma League of Talca y proyectos SaaS para BIT Partners.`,
-        projects: `<span class="cli-yellow">[Proyectos Principales]</span>
-  1. <span class="cli-accent">League of Talca</span>    - Plataforma Esports SaaS, Torneos, Webpay Plus y MariaDB.
-  2. <span class="cli-accent">Punto de Venta</span>      - React SPA, Django backend y barcode control.
-  3. <span class="cli-accent">Fundación Bon Sens</span>  - DevOps, Docker y Compose local.
-  4. <span class="cli-accent">Telemetry Dashboard</span> - React, Node.js y flujos WebSockets en vivo.
-  5. <span class="cli-accent">ClearDose (IoT)</span>     - C++ ESP32 interrupt firmware &amp; Android Kotlin App.
-  6. <span class="cli-accent">QRSend</span>              - Go socket file streams en red LAN.`,
-        skills: `<span class="cli-yellow">[Stack &amp; Habilidades]</span>
-  - <span class="cli-accent">Frontend</span>: React 18, Vite, Next.js, JavaScript ES6+, HTML5, Tailwind CSS.
-  - <span class="cli-accent">Backend</span>: Go (Golang), Python (Django), Node.js, PHP, REST APIs, WebSockets.
-  - <span class="cli-accent">Bases de Datos</span>: MariaDB, MySQL, PostgreSQL, SQLite.
-  - <span class="cli-accent">DevOps & Cloud</span>: Docker, Docker Compose, Linux (Debian/Arch), Nginx, Bash, Systemd.
-  - <span class="cli-accent">IoT & Embebidos</span>: C++ (ESP32/Arduino), Android (Kotlin), Bluetooth Serial.`,
-        contact: `<span class="cli-yellow">[Canales de Comunicación]</span>
-  - Email:    <a href="mailto:3N63L@proton.me" class="cli-accent">3N63L@proton.me</a>
-  - LinkedIn: <a href="https://linkedin.com/in/angel-noriega-42b122373" target="_blank" class="cli-accent">linkedin.com/in/angel-noriega-42b122373</a>
-  - GitHub:   <a href="https://github.com/Angelds-20" target="_blank" class="cli-accent">github.com/Angelds-20</a>`,
-        github: `Abriendo perfil de GitHub <a href="https://github.com/Angelds-20" target="_blank" class="cli-accent">github.com/Angelds-20</a> en pestaña nueva...`,
-        sudo: `[sudo] password for angel: 
-Sorry, try again.
-sudo: 1 incorrect password attempt`
-    };
-
-    if (terminalInput) {
-        terminalInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                const commandText = terminalInput.value.trim();
-                const cleanCmd = commandText.toLowerCase();
-
-                const promptLine = document.createElement('div');
-                promptLine.className = 'terminal-line';
-                promptLine.innerHTML = `<span class="terminal-prompt">angel@servidor:~$</span> ${commandText}`;
-                terminalHistory.appendChild(promptLine);
-
-                if (cleanCmd !== '') {
-                    const responseLine = document.createElement('div');
-                    responseLine.className = 'terminal-line';
-
-                    if (cleanCmd === 'clear') {
-                        terminalHistory.innerHTML = '';
-                    } else if (cleanCmd === 'uptime') {
-                        responseLine.innerHTML = `Servidor Uptime: ${uptimeVal ? uptimeVal.textContent : 'Calculando...'}`;
-                        terminalHistory.appendChild(responseLine);
-                    } else if (cleanCmd === 'github') {
-                        responseLine.innerHTML = commandResponses['github'];
-                        terminalHistory.appendChild(responseLine);
-                        window.open('https://github.com/Angelds-20', '_blank');
-                    } else if (cleanCmd === 'systemctl status portfolio' || cleanCmd === 'systemctl status') {
-                        responseLine.innerHTML = `● portfolio.service - Portafolio de Angel Noriega
-     Loaded: loaded (/etc/systemd/system/portfolio.service; enabled; vendor preset: enabled)
-     Active: <span class="cli-success">active (running)</span> since Mon 2026-06-22 00:00:00 UTC; 5h ago
-   Main PID: 24890 (node)
-      Tasks: 11
-     Memory: 48.2M
-     CGroup: /system.slice/portfolio.service
-             └─24890 node server.js
-
-<span class="cli-yellow">MÉTRICAS DE EXPERIENCIA:</span>
-  - Proyectos completados:  <span class="cli-accent">15</span>
-  - Contenedores Docker:    <span class="cli-accent">5</span>
-  - Módulos IoT activos:    <span class="cli-accent">3</span>
-  - OS de Servidor:         <span class="cli-accent">Debian Linux</span>`;
-                        terminalHistory.appendChild(responseLine);
-                    } else if (commandResponses[cleanCmd]) {
-                        responseLine.innerHTML = commandResponses[cleanCmd];
-                        terminalHistory.appendChild(responseLine);
-                    } else {
-                        responseLine.innerHTML = `bash: comando no encontrado: <span class="cli-red">${commandText}</span>. Escribe <span class="cli-accent">help</span> para opciones.`;
-                        terminalHistory.appendChild(responseLine);
-                    }
-                }
-
-                terminalInput.value = '';
-                terminalBody.scrollTop = terminalBody.scrollHeight;
-            }
-        });
     }
 
 
