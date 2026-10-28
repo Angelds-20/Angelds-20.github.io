@@ -231,7 +231,7 @@ a {
    SPA TAB SYSTEM
    ========================================================================== */
 .main-content {
-    margin-top: 80px; /* Offset fixed navbar */
+    margin-top: 0;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -1532,5 +1532,533 @@ a {
     /* Footer */
     .footer {
         padding: 24px 0;
+    }
+}
+
+/* ==========================================================================
+   EDITORIAL HIGH-END HERO & ARCHITECTURE (GAZU INSPIRATION)
+   ========================================================================== */
+
+/* Top ticker bar */
+.gazu-top-bar {
+    background: #000000;
+    color: #a1a1aa;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    padding: 9px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-transform: uppercase;
+    overflow-x: auto;
+    white-space: nowrap;
+    position: relative;
+    z-index: 101;
+}
+.gazu-top-sep {
+    color: #444;
+}
+
+/* Navbar Editorial */
+.gazu-navbar {
+    background: #fbfbfb !important;
+    border-bottom: 1px solid #e4e4e7 !important;
+    position: sticky !important;
+    top: 0 !important;
+}
+.gazu-nav-container {
+    max-width: 1300px;
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    width: 100%;
+    padding: 14px 24px;
+}
+.gazu-navbar a {
+    color: #18181b !important;
+    font-size: 0.82rem;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.gazu-navbar a.active, .gazu-navbar a:hover {
+    color: #000000 !important;
+    font-weight: 800;
+}
+.nav-left {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+.nav-right {
+    display: flex;
+    gap: 24px;
+    justify-content: flex-end;
+    align-items: center;
+}
+.gazu-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+}
+.gazu-logo .logo-bold {
+    font-family: 'Syne', var(--font-title), sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: #09090b !important;
+    line-height: 1;
+}
+.gazu-logo .logo-sub {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: #71717a !important;
+    margin-top: 2px;
+    font-weight: 700;
+}
+.nav-btn-gazu, .gazu-navbar a.nav-btn-gazu {
+    background: #09090b !important;
+    color: #ffffff !important;
+    padding: 8px 18px !important;
+    border-radius: 2px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.5px;
+    transition: all 0.2s ease;
+    border: 1px solid #09090b;
+    text-decoration: none;
+}
+.nav-btn-gazu:hover, .gazu-navbar a.nav-btn-gazu:hover {
+    background: #27272a !important;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+}
+
+/* Tab Inicio reset padding */
+#tab-inicio.p-0 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Hero Canvas - Warm Editorial Off-White */
+.gazu-hero {
+    background-color: #f4f4f5;
+    background-image: 
+        radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.95) 0%, rgba(244, 244, 245, 0.7) 70%),
+        linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 48px 48px, 48px 48px;
+    padding: 60px 24px 90px 24px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #e4e4e7;
+}
+
+.gazu-hero-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 520px;
+    justify-content: space-between;
+}
+
+.gazu-manifesto {
+    max-width: 320px;
+    z-index: 2;
+}
+.gazu-manifesto-sub {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    color: #71717a;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.gazu-manifesto-title {
+    font-family: 'Syne', var(--font-sans), sans-serif;
+    font-size: 1.45rem;
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #09090b;
+    margin-top: 8px;
+}
+
+/* Center Monumental Typography */
+.gazu-title-wrap {
+    text-align: center;
+    position: relative;
+    margin: 40px 0 20px 0;
+    z-index: 1;
+}
+.gazu-monumental-text {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(4.5rem, 16vw, 12rem);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    line-height: 0.85;
+    text-transform: uppercase;
+    color: #09090b;
+    user-select: none;
+    margin: 0;
+    text-shadow: 0 10px 40px rgba(0,0,0,0.06);
+}
+.gazu-emblem-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #09090b;
+    color: #ffffff;
+    padding: 9px 22px;
+    border-radius: 9999px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    margin-top: -18px;
+    position: relative;
+    z-index: 3;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+.emblem-code {
+    font-family: var(--font-mono);
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: #38bdf8;
+}
+.emblem-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    color: #f4f4f5;
+}
+
+/* Lower Flanking */
+.gazu-hero-meta {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-width: 320px;
+    z-index: 2;
+}
+.meta-season {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #09090b;
+    letter-spacing: 1.5px;
+}
+.meta-tagline {
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    color: #52525b;
+    line-height: 1.45;
+}
+.meta-institution {
+    font-size: 0.78rem;
+    font-family: var(--font-mono);
+    font-weight: 800;
+    color: #09090b;
+    margin-top: 4px;
+}
+
+.gazu-hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 10px;
+    z-index: 2;
+}
+.btn-gazu-solid {
+    background: #09090b;
+    color: #ffffff !important;
+    padding: 15px 30px;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: 1px solid #09090b;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+.btn-gazu-solid:hover {
+    background: #27272a;
+    border-color: #27272a;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.btn-gazu-outline {
+    background: transparent;
+    color: #09090b !important;
+    padding: 15px 30px;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: 1px solid #09090b;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+.btn-gazu-outline:hover {
+    background: #09090b;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+/* Pitch Black High-Contrast Bar */
+.gazu-black-bar {
+    background: #000000;
+    color: #ffffff;
+    padding: 70px 0;
+    border-bottom: 1px solid #1f2937;
+}
+.gazu-black-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+}
+.gazu-black-col {
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    padding-left: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.black-col-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+.black-col-num {
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    color: #38bdf8;
+    font-weight: 800;
+}
+.black-col-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+}
+.black-col-desc {
+    font-size: 0.9rem;
+    color: #a1a1aa;
+    line-height: 1.65;
+    margin-bottom: 24px;
+}
+.black-col-link {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: auto;
+    transition: all 0.2s ease;
+}
+.black-col-link:hover {
+    color: #38bdf8;
+    padding-left: 6px;
+}
+
+/* Featured Editorial Showcase */
+.gazu-showcase {
+    background: #f4f4f5;
+    padding: 90px 0;
+    border-bottom: 1px solid #e4e4e7;
+}
+.gazu-showcase-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: center;
+}
+.showcase-meta {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #e11d48;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+}
+.showcase-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: #09090b;
+    margin-bottom: 18px;
+    line-height: 1.05;
+}
+.showcase-desc {
+    font-size: 1.05rem;
+    color: #52525b;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+.showcase-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 36px;
+}
+.spec-pill {
+    background: #ffffff;
+    border: 1px solid #d4d4d8;
+    color: #18181b;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+.showcase-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.gazu-showcase-media {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.18);
+    border: 1px solid #d4d4d8;
+    background: #000;
+}
+.gazu-showcase-media img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+.gazu-showcase-media:hover img {
+    transform: scale(1.03);
+}
+.media-overlay-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(0, 0, 0, 0.9);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 5px 12px;
+    border-radius: 3px;
+    letter-spacing: 1px;
+}
+
+/* Minimalist Trust Strip */
+.gazu-trust-strip {
+    background: #ffffff;
+    border-bottom: 1px solid #e4e4e7;
+    padding: 36px 0;
+}
+.gazu-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+}
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.trust-item i {
+    font-size: 1.6rem;
+    color: #09090b;
+}
+.trust-item div {
+    display: flex;
+    flex-direction: column;
+}
+.trust-item strong {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #09090b;
+    letter-spacing: 0.5px;
+}
+.trust-item span {
+    font-size: 0.75rem;
+    color: #71717a;
+    line-height: 1.35;
+}
+
+/* Terminal Dashboard Grid in Tab Consola */
+.terminal-dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 28px;
+    align-items: start;
+    margin-top: 24px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .gazu-nav-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        text-align: center;
+    }
+    .nav-left, .nav-right {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+    .gazu-black-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+    .gazu-showcase-grid {
+        grid-template-columns: 1fr;
+    }
+    .gazu-trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    .gazu-hero-meta {
+        position: static;
+        text-align: left;
+        margin-top: 32px;
+    }
+    .terminal-dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 640px) {
+    .gazu-trust-grid {
+        grid-template-columns: 1fr;
     }
 }

@@ -78,122 +78,171 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Custom CSS (Cache-Buster para refresco instantáneo) -->
+    <link rel="stylesheet" href="style.css?v=20261028_gazu">
 </head>
 <body>
-    <!-- Navigation -->
-    <header class="navbar">
-        <div class="nav-container">
-            <a href="#inicio" class="nav-logo tab-link" data-tab="inicio">AN</a>
-            <nav class="nav-links">
-                <a href="#inicio" class="tab-link active" data-tab="inicio">// inicio</a>
-                <a href="#proyectos" class="tab-link" data-tab="proyectos">// proyectos</a>
-                <a href="#competencias" class="tab-link" data-tab="competencias">// competencias</a>
-                <a href="#consola" class="tab-link" data-tab="consola">// terminal.sh</a>
-                <a href="#sobre-mi" class="tab-link" data-tab="sobre-mi">// perfil</a>
-                <a href="#contacto" class="nav-btn tab-link" data-tab="contacto">// contacto</a>
-            </nav>
+    <!-- Top Announcement Ticker -->
+    <div class="gazu-top-bar">
+        <span>INGENIERO EN INFORMÁTICA // TALCA, CHILE // ARCHITECTURE, FULL-STACK &amp; DEVOPS</span>
+        <span class="gazu-top-sep">&bull;</span>
+        <span>LEAD SOFTWARE ENGINEER // BIT PARTNERS</span>
+        <span class="gazu-top-sep">&bull;</span>
+        <span>DISPONIBLE PARA DESARROLLO &amp; CONSULTORÍA</span>
+    </div>
+
+    <!-- Navigation (Editorial Architecture) -->
+    <header class="navbar gazu-navbar">
+        <div class="nav-container gazu-nav-container">
+            <div class="nav-left">
+                <a href="#inicio" class="tab-link active" data-tab="inicio">// INICIO</a>
+                <a href="#proyectos" class="tab-link" data-tab="proyectos">// PROYECTOS</a>
+                <a href="#competencias" class="tab-link" data-tab="competencias">// STACK</a>
+            </div>
+            <a href="#inicio" class="nav-logo gazu-logo tab-link" data-tab="inicio">
+                <span class="logo-bold">NORIEGA</span>
+                <span class="logo-sub">DEV &bull; 2026</span>
+            </a>
+            <div class="nav-right">
+                <a href="#consola" class="tab-link" data-tab="consola">// TERMINAL</a>
+                <a href="#sobre-mi" class="tab-link" data-tab="sobre-mi">// PERFIL</a>
+                <a href="#contacto" class="nav-btn-gazu tab-link" data-tab="contacto">CONTACTO</a>
+            </div>
         </div>
     </header>
 
     <main class="main-content">
         <!-- ==========================================
-             TAB 1: INICIO (DASHBOARD)
+             TAB 1: INICIO (EDITORIAL MONUMENTAL - GAZU INSP.)
              ========================================== -->
-        <section id="tab-inicio" class="tab-content active">
-            <div class="container dashboard-grid">
-                <!-- Left: Hero Text -->
-                <div class="hero-intro">
-                    <div class="hero-tag">INGENIERÍA EN INFORMÁTICA // FULL-STACK &amp; DEVOPS</div>
-                    <h1 class="hero-title">
-                        <span class="hero-monumental">ÁNGEL NORIEGA</span>
-                        <span class="hero-sub">Arquitectura de software, plataformas web e infraestructura en producción.</span>
-                    </h1>
-                    <p class="hero-subtitle">
-                        Ingeniero en Informática (INACAP) enfocado en ingeniería de software Full-Stack: interfaces reactivas de alto rendimiento (React/Vite), backends transaccionales (Go/Python/PHP), orquestación con Docker y despliegues en servidores Linux.
-                    </p>
-                    <div class="hero-actions">
-                        <a href="#proyectos" class="btn-solid tab-link" data-tab="proyectos">Ver Proyectos</a>
-                        <a href="#contacto" class="btn-outline tab-link" data-tab="contacto">Hablemos</a>
-                        <a href="https://github.com/Angelds-20" target="_blank" class="btn-outline"><i class="fa-brands fa-github"></i> GitHub</a>
+        <section id="tab-inicio" class="tab-content active p-0">
+            <!-- Monumental Hero Canvas -->
+            <div class="gazu-hero">
+                <div class="gazu-hero-container">
+                    <!-- Manifesto Tagline (Upper Left) -->
+                    <div class="gazu-manifesto">
+                        <span class="gazu-manifesto-sub">INGENIERÍA &bull; SOFTWARE</span>
+                        <h2 class="gazu-manifesto-title">SOFTWARE<br>THAT POWERS<br>SYSTEMS.</h2>
                     </div>
-                    
-                    <div class="quick-system-stats">
-                        <div class="stat-card">
-                            <span class="stat-value">Production</span>
-                            <span class="stat-desc">League of Talca &bull; SaaS</span>
+
+                    <!-- Monumental Center Typography -->
+                    <div class="gazu-title-wrap">
+                        <h1 class="gazu-monumental-text">NORIEGA</h1>
+                        <div class="gazu-emblem-badge">
+                            <span class="emblem-code">&lt;AN /&gt;</span>
+                            <span class="emblem-label">INGENIERO EN INFORMÁTICA &bull; FULL-STACK</span>
                         </div>
-                        <div class="stat-card">
-                            <span class="stat-value">Full-Stack</span>
-                            <span class="stat-desc">React &bull; Go &bull; Docker</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-value">INACAP</span>
-                            <span class="stat-desc">Ing. Informática</span>
-                        </div>
+                    </div>
+
+                    <!-- Meta Details (Lower Right) -->
+                    <div class="gazu-hero-meta">
+                        <span class="meta-season">2026 EDITION</span>
+                        <span class="meta-tagline">PLATAFORMAS DE ALTA CONCURRENCIA, APIS REST &amp; CLOUD LINUX</span>
+                        <span class="meta-institution">INACAP &bull; TALCA, CHILE</span>
+                    </div>
+
+                    <!-- Actions (Lower Left) -->
+                    <div class="gazu-hero-actions">
+                        <a href="#proyectos" class="btn-gazu-solid tab-link" data-tab="proyectos">EXPLORAR PROYECTOS</a>
+                        <a href="#contacto" class="btn-gazu-outline tab-link" data-tab="contacto">INICIAR CONTACTO &rarr;</a>
                     </div>
                 </div>
-                
-                <!-- Right: System Monitor Widget -->
-                <div class="hero-widget">
-                    <div class="sys-monitor">
-                        <div class="monitor-header">
-                            <span class="monitor-title"><i class="fa-solid fa-server"></i> monitor_sistema.sh</span>
-                            <span class="monitor-status-pulse"></span>
-                            <span class="monitor-badge">LIVE</span>
-                        </div>
-                        <div class="monitor-body">
-                            <div class="monitor-row">
-                                <span class="monitor-label">OS:</span>
-                                <span class="monitor-val">Linux Server (Debian/Arch)</span>
-                            </div>
-                            <div class="monitor-row">
-                                <span class="monitor-label">Servicios:</span>
-                                <span class="monitor-val">Nginx, Gunicorn, PostgreSQL</span>
-                            </div>
-                            <div class="monitor-row">
-                                <span class="monitor-label">Uptime:</span>
-                                <span class="monitor-val" id="monitor-uptime">00:00:00</span>
-                            </div>
-                            
-                            <!-- CPU Progress Bar -->
-                            <div class="monitor-progress-group">
-                                <div class="progress-info">
-                                    <span class="monitor-label">CPU Load:</span>
-                                    <span class="monitor-val" id="monitor-cpu-text">8%</span>
-                                </div>
-                                <div class="progress-bar-bg">
-                                    <div class="progress-bar-fill" id="monitor-cpu-bar" style="width: 8%"></div>
-                                </div>
-                            </div>
-                            
-                            <!-- MEM Progress Bar -->
-                            <div class="monitor-progress-group">
-                                <div class="progress-info">
-                                    <span class="monitor-label">Memory:</span>
-                                    <span class="monitor-val" id="monitor-mem-text">38.4%</span>
-                                </div>
-                                <div class="progress-bar-bg">
-                                    <div class="progress-bar-fill" id="monitor-mem-bar" style="width: 38.4%"></div>
-                                </div>
-                            </div>
+            </div>
 
-                            <div class="monitor-services">
-                                <div class="services-title">ESTADO DE DAEMONS</div>
-                                <div class="service-row">
-                                    <span class="service-name"><span class="dot-active"></span> postgresql.service</span>
-                                    <span class="service-status">active (running)</span>
-                                </div>
-                                <div class="service-row">
-                                    <span class="service-name"><span class="dot-active"></span> docker.service</span>
-                                    <span class="service-status">active (running)</span>
-                                </div>
-                                <div class="service-row">
-                                    <span class="service-name"><span class="dot-active"></span> nginx.service</span>
-                                    <span class="service-status">active (running)</span>
-                                </div>
-                            </div>
+            <!-- The Pitch-Black Architectural Bar (GAZU Men / Women / Kids equivalent) -->
+            <div class="gazu-black-bar">
+                <div class="container gazu-black-grid">
+                    <div class="gazu-black-col">
+                        <div class="black-col-header">
+                            <span class="black-col-num">01</span>
+                            <h3 class="black-col-title">FULL-STACK WEB</h3>
+                        </div>
+                        <p class="black-col-desc">
+                            Aplicaciones SPA reactivas con React 18, Vite y Next.js. Pasarelas de pago Webpay Plus certificadas, catálogos e-commerce y backends transaccionales en Go, Python y PHP.
+                        </p>
+                        <a href="#proyectos" class="black-col-link tab-link" data-tab="proyectos" data-filter="fullstack">VER PROYECTOS WEB &rarr;</a>
+                    </div>
+
+                    <div class="gazu-black-col">
+                        <div class="black-col-header">
+                            <span class="black-col-num">02</span>
+                            <h3 class="black-col-title">DEVOPS &amp; LINUX</h3>
+                        </div>
+                        <p class="black-col-desc">
+                            Administración y hardening de servidores Linux (Debian/Arch). Aislamiento y orquestación con Docker Compose, servidores web Nginx y daemons de producción con Systemd.
+                        </p>
+                        <a href="#competencias" class="black-col-link tab-link" data-tab="competencias">VER INFRAESTRUCTURA &rarr;</a>
+                    </div>
+
+                    <div class="gazu-black-col">
+                        <div class="black-col-header">
+                            <span class="black-col-num">03</span>
+                            <h3 class="black-col-title">IOT &amp; HARDWARE</h3>
+                        </div>
+                        <p class="black-col-desc">
+                            Desarrollo de firmware embebido en C++ para microcontroladores ESP32 y Arduino. Integración con caudalímetros por interrupciones, WebSockets en vivo y apps Android nativas.
+                        </p>
+                        <a href="#proyectos" class="black-col-link tab-link" data-tab="proyectos" data-filter="iot">VER HARDWARE IOT &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Editorial Showcase: LEAGUE OF TALCA (GAZU New Vibes equivalent) -->
+            <div class="gazu-showcase">
+                <div class="container gazu-showcase-grid">
+                    <div class="gazu-showcase-content">
+                        <span class="showcase-meta">FLAGSHIP ARCHITECTURE &bull; PRODUCCIÓN REAL</span>
+                        <h2 class="showcase-title">LEAGUE OF TALCA</h2>
+                        <p class="showcase-desc">
+                            Ecosistema web completo desarrollado para gaming competitivo y torneos de esports en la Región del Maule. Integra motor de llaves y brackets algorítmico en tiempo real (Single Elimination &amp; Swiss System), tienda gamer con pasarela Webpay Plus de Transbank automatizada y panel de administración multi-rol.
+                        </p>
+                        <div class="showcase-specs">
+                            <span class="spec-pill">React 18 &bull; Vite</span>
+                            <span class="spec-pill">MariaDB &bull; PHP</span>
+                            <span class="spec-pill">Webpay Plus</span>
+                            <span class="spec-pill">Docker</span>
+                        </div>
+                        <div class="showcase-actions">
+                            <a href="https://leagueoftalca.com" target="_blank" rel="noopener" class="btn-gazu-solid">VER SITIO EN VIVO &rarr;</a>
+                            <button class="btn-gazu-outline card-detail-btn" data-project="league_of_talca">DETALLES DE ARQUITECTURA</button>
+                        </div>
+                    </div>
+                    <div class="gazu-showcase-media">
+                        <img src="assets/league_of_talca.webp" alt="League of Talca" loading="lazy">
+                        <div class="media-overlay-badge">PRODUCCIÓN ACTIVA</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Minimalist Guarantee Strip (Bottom Bar) -->
+            <div class="gazu-trust-strip">
+                <div class="container gazu-trust-grid">
+                    <div class="trust-item">
+                        <i class="fa-solid fa-bolt"></i>
+                        <div>
+                            <strong>ALTA CONCURRENCIA</strong>
+                            <span>Arquitecturas SPA ultra rápidas en React &amp; Vite</span>
+                        </div>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <div>
+                            <strong>PAGOS CERTIFICADOS</strong>
+                            <span>Integraciones seguras con Webpay Plus</span>
+                        </div>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fa-solid fa-server"></i>
+                        <div>
+                            <strong>INFRAESTRUCTURA LINUX</strong>
+                            <span>Contenedores Docker &amp; servidores VPS en producción</span>
+                        </div>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fa-solid fa-code"></i>
+                        <div>
+                            <strong>CÓDIGO ESTRUCTURADO</strong>
+                            <span>APIs RESTful, WebSockets y Clean Code</span>
                         </div>
                     </div>
                 </div>
@@ -454,33 +503,97 @@
         </section>
 
         <!-- ==========================================
-             TAB 4: TERMINAL
+             TAB 4: TERMINAL & MONITOR DEL SISTEMA
              ========================================== -->
         <section id="tab-consola" class="tab-content">
             <div class="container">
-                <div class="section-meta">ENTORNO DE COMANDOS</div>
-                <h2 class="section-title">Consola del Sistema</h2>
-                <p class="section-subtitle-text">Consulta información ejecutando comandos en esta terminal web.</p>
+                <div class="section-meta">ENTORNO DE COMANDOS &bull; DEBIAN LINUX</div>
+                <h2 class="section-title">Consola del Sistema &amp; Telemetría</h2>
+                <p class="section-subtitle-text">Ejecuta comandos en la terminal interactiva o revisa los daemons y telemetría en tiempo real del servidor.</p>
                 
-                <div class="terminal-window">
-                    <div class="terminal-header">
-                        <div class="terminal-dots">
-                            <span class="terminal-dot red"></span>
-                            <span class="terminal-dot yellow"></span>
-                            <span class="terminal-dot green"></span>
+                <div class="terminal-dashboard-grid">
+                    <!-- Left: Terminal Window -->
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <div class="terminal-dots">
+                                <span class="terminal-dot red"></span>
+                                <span class="terminal-dot yellow"></span>
+                                <span class="terminal-dot green"></span>
+                            </div>
+                            <span class="terminal-title">angel@servidor:~</span>
+                            <div class="terminal-actions">
+                                <span class="terminal-action-btn" id="terminal-clear-btn" title="Limpiar consola"><i class="fa-solid fa-trash-can"></i></span>
+                            </div>
                         </div>
-                        <span class="terminal-title">angel@servidor:~</span>
-                        <div class="terminal-actions">
-                            <span class="terminal-action-btn" id="terminal-clear-btn" title="Limpiar consola"><i class="fa-solid fa-trash-can"></i></span>
+                        <div class="terminal-body" id="terminal-body">
+                            <div class="terminal-line text-muted">Sesión de terminal activa. Escribe <span class="accent-text">help</span> para ver los comandos disponibles.</div>
+                            <div class="terminal-line">&nbsp;</div>
+                            <div class="terminal-history" id="terminal-history"></div>
+                            <div class="terminal-input-row">
+                                <span class="terminal-prompt">angel@servidor:~$</span>
+                                <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" placeholder="Escribe un comando...">
+                            </div>
                         </div>
                     </div>
-                    <div class="terminal-body" id="terminal-body">
-                        <div class="terminal-line text-muted">Sesión de terminal activa. Escribe <span class="accent-text">help</span> para ver los comandos disponibles.</div>
-                        <div class="terminal-line">&nbsp;</div>
-                        <div class="terminal-history" id="terminal-history"></div>
-                        <div class="terminal-input-row">
-                            <span class="terminal-prompt">angel@servidor:~$</span>
-                            <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" placeholder="Escribe un comando...">
+
+                    <!-- Right: System Monitor Widget -->
+                    <div class="sys-monitor">
+                        <div class="monitor-header">
+                            <span class="monitor-title"><i class="fa-solid fa-server"></i> monitor_sistema.sh</span>
+                            <span class="monitor-status-pulse"></span>
+                            <span class="monitor-badge">LIVE</span>
+                        </div>
+                        <div class="monitor-body">
+                            <div class="monitor-row">
+                                <span class="monitor-label">OS:</span>
+                                <span class="monitor-val">Linux Server (Debian/Arch)</span>
+                            </div>
+                            <div class="monitor-row">
+                                <span class="monitor-label">Servicios:</span>
+                                <span class="monitor-val">Nginx, Gunicorn, PostgreSQL</span>
+                            </div>
+                            <div class="monitor-row">
+                                <span class="monitor-label">Uptime:</span>
+                                <span class="monitor-val" id="monitor-uptime">00:00:00</span>
+                            </div>
+                            
+                            <!-- CPU Progress Bar -->
+                            <div class="monitor-progress-group">
+                                <div class="progress-info">
+                                    <span class="monitor-label">CPU Load:</span>
+                                    <span class="monitor-val" id="monitor-cpu-text">8%</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" id="monitor-cpu-bar" style="width: 8%"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- MEM Progress Bar -->
+                            <div class="monitor-progress-group">
+                                <div class="progress-info">
+                                    <span class="monitor-label">Memory:</span>
+                                    <span class="monitor-val" id="monitor-mem-text">38.4%</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" id="monitor-mem-bar" style="width: 38.4%"></div>
+                                </div>
+                            </div>
+
+                            <div class="monitor-services">
+                                <div class="services-title">ESTADO DE DAEMONS</div>
+                                <div class="service-row">
+                                    <span class="service-name"><span class="dot-active"></span> postgresql.service</span>
+                                    <span class="service-status">active (running)</span>
+                                </div>
+                                <div class="service-row">
+                                    <span class="service-name"><span class="dot-active"></span> docker.service</span>
+                                    <span class="service-status">active (running)</span>
+                                </div>
+                                <div class="service-row">
+                                    <span class="service-name"><span class="dot-active"></span> nginx.service</span>
+                                    <span class="service-status">active (running)</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -594,7 +707,7 @@
         </div>
     </footer>
 
-    <!-- Custom JS -->
-    <script src="script.js"></script>
+    <!-- Custom JS (Cache-Buster) -->
+    <script src="script.js?v=20261028_gazu"></script>
 </body>
 </html>
