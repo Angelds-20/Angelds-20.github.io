@@ -1,0 +1,51 @@
+# Ángel Noriega — Portafolio Profesional & Ficha Técnica de Ingeniería
+
+> Ingeniero en Informática (INACAP Talca) | Desarrollador Full-Stack & DevOps Engineer.
+> Sitio Web Oficial: https://angelds-20.github.io/
+> GitHub Oficial: https://github.com/Angelds-20
+> LinkedIn: https://linkedin.com/in/angel-noriega-42b122373
+> Correo de Contacto: 3N63L@proton.me
+> Ubicación: Talca, Región del Maule, Chile.
+
+## Resumen Profesional
+Ángel Noriega es un Ingeniero en Informática y desarrollador Full-Stack con experiencia comprobada en arquitectura de software web, plataformas SaaS transaccionales de alta concurrencia, integración de pasarelas de pago (Webpay Plus / Transbank), administración de servidores Linux y telemetría de sistemas embebidos IoT. Ha liderado y desarrollado la infraestructura de software para clientes y plataformas comerciales como League of Talca y BIT Partners.
+
+## Proyectos Destacados
+
+### 1. League of Talca (https://leagueoftalca.com)
+- **Rol:** Lead Software Engineer & Arquitecto de Software (BIT Partners).
+- **Descripción:** Plataforma SaaS e E-Commerce para gaming competitivo y torneos de esports en la Región del Maule, Chile.
+- **Funcionalidades:** Tienda online gamer, motor algorítmico de cálculo de llaves y brackets de torneos en tiempo real (Single Elimination & Swiss System), pasarela transaccional Webpay Plus de Transbank, marketplace de cosplay y panel administrativo en tiempo real.
+- **Stack Técnico:** React 18, Vite, Tailwind CSS, PHP, MariaDB, Webpay Plus REST API, Docker.
+
+### 2. Punto de Venta e Inventarios (POS)
+- **Rol:** Desarrollador Full-Stack.
+- **Descripción:** Aplicación web comercial para gestión de existencias, sincronización con lectores físicos de código de barras y alertas críticas de stock mínimo.
+- **Stack Técnico:** React SPA, Django REST Framework, SQLite/PostgreSQL, Python.
+
+### 3. Fundación Bon Sens (https://github.com/Angelds-20/fundacion-bon-sens)
+- **Rol:** DevOps & Full-Stack Engineer.
+- **Descripción:** Orquestación de infraestructura en contenedores Docker y servicios transaccionales aislados con scripts de arranque automatizados.
+- **Stack Técnico:** Docker, Docker Compose, PostgreSQL, PHP Apache.
+
+### 4. Dashboard de Telemetría Real-time
+- **Rol:** Desarrollador Full-Stack & IoT.
+- **Descripción:** Plataforma web para monitoreo y visualización de caudal y sensores en vivo mediante WebSockets full-duplex de baja latencia.
+- **Stack Técnico:** React, Node.js, WebSockets, Tailwind CSS.
+
+### 5. ClearDose IoT
+- **Rol:** Ingeniero de Firmware & Desarrollador Android.
+- **Descripción:** Dispositivo embebido con firmware C++ en ESP32 para corte y control de caudal por interrupciones de hardware, con app móvil Android nativa en Kotlin (Bluetooth Serial).
+- **Stack Técnico:** C++, Arduino/ESP32, Bluetooth Serial, Kotlin.
+
+### 6. QRSend
+- **Rol:** Backend & Network Engineer.
+- **Descripción:** Herramienta de transferencia de archivos por red local y streaming de sockets en Go.
+- **Stack Técnico:** Go (Golang), Redes TCP/IP, CLI.
+
+## Competencias Técnicas
+- **Frontend:** React 18, Next.js, Vite, JavaScript ES6+, HTML5, CSS3, Tailwind CSS.
+- **Backend:** Node.js, Express, Go (Golang), Python (Django REST), PHP, REST APIs, WebSockets.
+- **Bases de Datos:** MariaDB, MySQL, PostgreSQL, SQLite.
+- **DevOps & Cloud:** Linux (Debian, Arch, Ubuntu), Docker, Docker Compose, Nginx, Systemd, Bash Scripting.
+- **IoT & Embebidos:** C++, ESP32, Arduino, FreeRTOS, Android (Kotlin).

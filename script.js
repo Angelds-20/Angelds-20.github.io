@@ -252,22 +252,23 @@ document.addEventListener('DOMContentLoaded', () => {
                            CPU: Intel(R) Core(TM) i5 (Dev Server)
                            RAM: 6.2 GiB / 16.0 GiB (38%)`,
         about: `<span class="cli-yellow">[Perfil de Ángel Noriega]</span>
-Estudiante de Ingeniería en Informática con sólida formación en desarrollo Full-Stack,
-despliegues de servidores Linux y telemetría de sistemas embebidos (ESP32).
-Busca crear soluciones integrales combinando interfaces de usuario fluidas en el Frontend
-con lógica eficiente y segura en el Backend.`,
+Ingeniero en Informática (INACAP Talca) | Desarrollador Full-Stack & DevOps.
+Especializado en arquitectura de software SaaS, plataformas web reactivas (React/Vite),
+servicios backend robustos (Go/Python/PHP) e infraestructura en servidores Linux (Docker/Nginx).
+Desarrollador líder de la plataforma League of Talca y proyectos SaaS para BIT Partners.`,
         projects: `<span class="cli-yellow">[Proyectos Principales]</span>
-  1. <span class="cli-accent">Punto de Venta</span>      - React SPA, Django backend y barcode control.
-  2. <span class="cli-accent">Fundación Bon Sens</span>  - DevOps, Docker y Compose local.
-  3. <span class="cli-accent">Telemetry Dashboard</span> - React, Node.js y flujos WebSockets en vivo.
-  4. <span class="cli-accent">ClearDose (IoT)</span>     - C++ ESP32 interrupt firmware &amp; Android Kotlin App.
-  5. <span class="cli-accent">QRSend</span>              - Go socket file streams en red LAN.
-  6. <span class="cli-accent">Netscan</span>             - Bash script auditor de routers locales.`,
+  1. <span class="cli-accent">League of Talca</span>    - Plataforma Esports SaaS, Torneos, Webpay Plus y MariaDB.
+  2. <span class="cli-accent">Punto de Venta</span>      - React SPA, Django backend y barcode control.
+  3. <span class="cli-accent">Fundación Bon Sens</span>  - DevOps, Docker y Compose local.
+  4. <span class="cli-accent">Telemetry Dashboard</span> - React, Node.js y flujos WebSockets en vivo.
+  5. <span class="cli-accent">ClearDose (IoT)</span>     - C++ ESP32 interrupt firmware &amp; Android Kotlin App.
+  6. <span class="cli-accent">QRSend</span>              - Go socket file streams en red LAN.`,
         skills: `<span class="cli-yellow">[Stack &amp; Habilidades]</span>
-  - <span class="cli-accent">Frontend</span>: React, JavaScript ES6, HTML5, CSS3 responsive.
-  - <span class="cli-accent">Backend</span>: Django REST framework, Go (Golang), Node.js, PHP, Postgres.
-  - <span class="cli-accent">DevOps</span>: Docker, Docker Compose, Linux, Bash Scripting, Systemd.
-  - <span class="cli-accent">IoT</span>: C++ (ESP32/Arduino), Android (Kotlin), Bluetooth Serial.`,
+  - <span class="cli-accent">Frontend</span>: React 18, Vite, Next.js, JavaScript ES6+, HTML5, Tailwind CSS.
+  - <span class="cli-accent">Backend</span>: Go (Golang), Python (Django), Node.js, PHP, REST APIs, WebSockets.
+  - <span class="cli-accent">Bases de Datos</span>: MariaDB, MySQL, PostgreSQL, SQLite.
+  - <span class="cli-accent">DevOps & Cloud</span>: Docker, Docker Compose, Linux (Debian/Arch), Nginx, Bash, Systemd.
+  - <span class="cli-accent">IoT & Embebidos</span>: C++ (ESP32/Arduino), Android (Kotlin), Bluetooth Serial.`,
         contact: `<span class="cli-yellow">[Canales de Comunicación]</span>
   - Email:    <a href="mailto:3N63L@proton.me" class="cli-accent">3N63L@proton.me</a>
   - LinkedIn: <a href="https://linkedin.com/in/angel-noriega-42b122373" target="_blank" class="cli-accent">linkedin.com/in/angel-noriega-42b122373</a>
@@ -338,6 +339,30 @@ sudo: 1 incorrect password attempt`
        TECHNICAL PROJECT MODAL (DRAWER) DATA & DELEGATION
        ========================================================================== */
     const projectDetails = {
+        league_of_talca: {
+            stack: "React 18 &bull; Vite &bull; Tailwind CSS &bull; PHP / MariaDB &bull; Webpay Plus &bull; Docker",
+            title: "League of Talca — Arquitectura SaaS & E-Commerce",
+            text: "Plataforma web de alto rendimiento para gaming competitivo y comercio electrónico en la Región del Maule. Integra sistema de torneos con cálculo algorítmico de seeds y brackets en tiempo real (eliminación simple y sistema suizo), pasarela Webpay Plus de Transbank certificada, sincronización transaccional con MariaDB y panel de control administrativo multi-rol.",
+            codeHeader: "bracketEngine.js (Motor de Torneos & Cálculo de Llaves)",
+            code: `// Motor algorítmico de torneos - League of Talca
+export async function renameParticipant(torneoId, participantId, newName, estado) {
+  const token = localStorage.getItem('token');
+  const res = await fetch(\`\${API_BASE_URL}/api/torneos/\${torneoId}/participants/\${participantId}/rename\`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': \`Bearer \${token}\`
+    },
+    body: JSON.stringify({ nombre: newName, estado })
+  });
+  
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.message || 'Error al actualizar participante');
+  }
+  return await res.json();
+}`
+        },
         pos: {
             stack: "Django &bull; React &bull; SQLite &bull; Python",
             title: "Punto de Venta e Inventarios",

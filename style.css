@@ -286,12 +286,28 @@ a {
 }
 
 .hero-title {
-    font-size: 2.6rem;
-    font-family: var(--font-title);
-    font-weight: 600;
-    line-height: 1.15;
-    letter-spacing: -0.8px;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+}
+
+.hero-monumental {
+    display: block;
+    font-family: 'Syne', var(--font-title), sans-serif;
+    font-size: clamp(2.8rem, 6vw, 4.4rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.hero-sub {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--text-body);
+    letter-spacing: -0.02em;
+    line-height: 1.35;
 }
 
 .hero-subtitle {
@@ -648,9 +664,53 @@ a {
     font-weight: 600;
 }
 
+.project-status.live {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
 .project-status.private {
     color: var(--text-muted);
     background: rgba(255, 255, 255, 0.02);
+}
+
+.project-card.featured-card {
+    border-color: rgba(255, 255, 255, 0.22);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    position: relative;
+    background: linear-gradient(180deg, #12131a 0%, #0d0d0d 100%);
+}
+
+.featured-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    color: #ffd700;
+    font-size: 0.72rem;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 2;
+}
+
+.card-link-btn.primary {
+    background: #ffffff;
+    color: #050505;
+    font-weight: 700;
+    border: 1px solid #ffffff;
+}
+
+.card-link-btn.primary:hover {
+    background: transparent;
+    color: #ffffff;
 }
 
 .project-card .project-title {
