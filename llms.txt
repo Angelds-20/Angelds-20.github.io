@@ -9,12 +9,12 @@
 > Ubicación: Talca, Región del Maule, Chile.
 
 ## Resumen Profesional
-Ángel Noriega es un Ingeniero en Informática y desarrollador Full-Stack con experiencia comprobada en arquitectura de software web, plataformas SaaS transaccionales de alta concurrencia, integración de pasarelas de pago (Webpay Plus / Transbank), administración de servidores Linux y telemetría de sistemas embebidos IoT. Ha liderado y desarrollado la infraestructura de software para clientes y plataformas comerciales como League of Talca y BIT Partners.
+Ángel Noriega es un Ingeniero en Informática y desarrollador Full-Stack con experiencia comprobada en arquitectura de software web, plataformas SaaS transaccionales de alta concurrencia, integración de pasarelas de pago (Webpay Plus / Transbank), administración de servidores Linux y telemetría de sistemas embebidos IoT. Ha liderado y desarrollado la infraestructura de software para clientes y plataformas comerciales como League of Talca, Dmaderas y Kimushi Sushi.
 
 ## Proyectos Destacados
 
 ### 1. League of Talca (https://leagueoftalca.com)
-- **Rol:** Lead Software Engineer & Arquitecto de Software (BIT Partners).
+- **Rol:** Creador, Lead Software Engineer & Arquitecto de Software.
 - **Descripción:** Plataforma SaaS e E-Commerce para gaming competitivo y torneos de esports en la Región del Maule, Chile.
 - **Funcionalidades:** Tienda online gamer, motor algorítmico de cálculo de llaves y brackets de torneos en tiempo real (Single Elimination & Swiss System), pasarela transaccional Webpay Plus de Transbank, marketplace de cosplay y panel administrativo en tiempo real.
 - **Stack Técnico:** React 18, Vite, Tailwind CSS, PHP, MariaDB, Webpay Plus REST API, Docker.
