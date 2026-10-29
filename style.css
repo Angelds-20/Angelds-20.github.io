@@ -2002,6 +2002,336 @@ a {
     line-height: 1.35;
 }
 
+/* ==========================================================================
+   EDITORIAL STACK & TECHNICAL SKILLS SECTION
+   ========================================================================== */
+.gazu-stack-section {
+    background: #fafafa;
+    padding: 80px 0;
+    border-bottom: 1px solid #e4e4e7;
+}
+
+.editorial-section-header {
+    margin-bottom: 48px;
+}
+.editorial-section-header.text-center {
+    text-align: center;
+}
+.editorial-meta-tag {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    color: #0284c7;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+.editorial-meta-tag.client-tag {
+    color: #10b981;
+}
+.editorial-section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: #09090b;
+    line-height: 1.15;
+    margin-bottom: 16px;
+}
+.editorial-section-subtitle {
+    font-size: 1.05rem;
+    color: #52525b;
+    line-height: 1.65;
+    max-width: 720px;
+}
+.editorial-section-header.text-center .editorial-section-subtitle {
+    margin: 0 auto;
+}
+
+/* Skills Grid (2x2 Grid) */
+.gazu-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+.gazu-skill-card {
+    background: #ffffff;
+    border: 1px solid #e4e4e7;
+    border-radius: 4px;
+    padding: 32px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.gazu-skill-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+    border-color: #cbd5e1;
+}
+.skill-card-top {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #f4f4f5;
+}
+.skill-num {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #0284c7;
+}
+.skill-category-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #09090b;
+    letter-spacing: -0.01em;
+}
+.skill-category-title i {
+    margin-right: 6px;
+    color: #71717a;
+    font-size: 1.1rem;
+}
+.gazu-skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.gazu-skill-list li {
+    font-size: 0.92rem;
+    color: #52525b;
+    line-height: 1.55;
+    position: relative;
+    padding-left: 20px;
+}
+.gazu-skill-list li::before {
+    content: "↳";
+    position: absolute;
+    left: 0;
+    color: #0284c7;
+    font-family: var(--font-mono);
+    font-weight: 700;
+}
+.gazu-skill-list li strong {
+    color: #09090b;
+}
+
+/* ==========================================================================
+   SERVICES & CLIENT CONVERSION SECTION
+   ========================================================================== */
+.gazu-services-section {
+    background: #ffffff;
+    padding: 90px 0;
+    border-bottom: 1px solid #e4e4e7;
+}
+.gazu-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-bottom: 56px;
+}
+.service-offer-card {
+    background: #fbfbfb;
+    border: 1px solid #e4e4e7;
+    border-radius: 4px;
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.25s ease;
+}
+.service-offer-card:hover {
+    background: #ffffff;
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.06);
+    border-color: #09090b;
+}
+.service-offer-card.highlighted {
+    background: #ffffff;
+    border: 2px solid #09090b;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+}
+.popular-badge {
+    position: absolute;
+    top: -12px;
+    right: 24px;
+    background: #09090b;
+    color: #ffffff;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    padding: 4px 12px;
+    border-radius: 2px;
+}
+.service-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+    background: #09090b;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: 22px;
+}
+.service-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #09090b;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    line-height: 1.2;
+}
+.service-desc {
+    font-size: 0.92rem;
+    color: #52525b;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-top: 1px solid #f4f4f5;
+    padding-top: 18px;
+}
+.service-features li {
+    font-size: 0.85rem;
+    color: #27272a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.service-features li i {
+    color: #10b981;
+    font-size: 0.78rem;
+}
+
+/* Client Conversion Call-to-Action Box */
+.client-cta-box {
+    background: #09090b;
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 48px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 36px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+.cta-box-content {
+    max-width: 600px;
+}
+.cta-kicker {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    color: #38bdf8;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+.cta-heading {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+.cta-sub {
+    font-size: 0.95rem;
+    color: #a1a1aa;
+    line-height: 1.55;
+    margin: 0;
+}
+.cta-box-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-shrink: 0;
+}
+.btn-whatsapp {
+    background: #25d366;
+    color: #ffffff !important;
+    padding: 14px 28px;
+    border-radius: 2px;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+}
+.btn-whatsapp:hover {
+    background: #20ba5a;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4);
+}
+.btn-whatsapp i {
+    font-size: 1.15rem;
+}
+.btn-email-cta {
+    background: #ffffff;
+    color: #09090b !important;
+    padding: 12px 24px;
+    border-radius: 2px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+.btn-email-cta:hover {
+    background: #f4f4f5;
+    transform: translateY(-2px);
+}
+.btn-linkedin-cta {
+    background: transparent;
+    color: #a1a1aa !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 24px;
+    border-radius: 2px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+.btn-linkedin-cta:hover {
+    color: #ffffff !important;
+    border-color: #ffffff;
+}
+
 /* Terminal Dashboard Grid in Tab Consola */
 .terminal-dashboard-grid {
     display: grid;
@@ -2033,6 +2363,24 @@ a {
     .gazu-trust-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 24px;
+    }
+    .gazu-skills-grid {
+        grid-template-columns: 1fr;
+    }
+    .gazu-services-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .client-cta-box {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 36px 28px;
+    }
+    .cta-box-actions {
+        width: 100%;
+    }
+    .btn-whatsapp, .btn-email-cta, .btn-linkedin-cta {
+        width: 100%;
     }
 }
 
