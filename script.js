@@ -267,7 +267,7 @@ function checkoutToWhatsApp(cartItems, customerDetails) {
   });
   
   message += \`\\n*TOTAL: $\${calculateTotal(cartItems)}*\`;
-  const url = \`https://wa.me/56987271318?text=\${encodeURIComponent(message)}\`;
+  const url = \`https://wa.me/56953679656?text=\${encodeURIComponent(message)}\`;
   window.open(url, '_blank');
 }`
         },
