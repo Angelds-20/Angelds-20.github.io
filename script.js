@@ -232,6 +232,58 @@ export async function renameParticipant(torneoId, participantId, newName, estado
   return await res.json();
 }`
         },
+        ferreteria_dmaderas: {
+            stack: "Node.js &bull; Express &bull; MySQL &bull; Webpay Plus &bull; E-Commerce",
+            title: "Dmaderas — Ferretería & Maderas Premium",
+            text: "Plataforma de comercio electrónico diseñada para venta de insumos ferreteros y maderas finas. Implementa carro de compras reactivo con persistencia local, pasarela Webpay Plus oficial (Transbank) para pagos con tarjetas bancarias chilenas, panel de inventario y generador de órdenes de despacho.",
+            codeHeader: "webpayService.js (Integración Transbank Webpay Plus)",
+            code: `// Controlador de integración Webpay Plus REST
+import { WebpayPlus } from 'transbank-sdk';
+
+export async function createTransaction(buyOrder, sessionId, amount, returnUrl) {
+  const transaction = new WebpayPlus.Transaction();
+  const response = await transaction.create(
+    buyOrder,
+    sessionId,
+    amount,
+    returnUrl
+  );
+  return response; // token y URL de redirección segura a Transbank
+}`
+        },
+        sushi_kimushi: {
+            stack: "PHP &bull; JavaScript ES6 &bull; Tailwind CSS &bull; Pedidos WhatsApp",
+            title: "Kimushi Sushi — Plataforma Gastronómica & Delivery",
+            text: "Sitio web de comercio gastronómico interactivo para local de sushi. Integra menú digital categorizado con fotos en alta resolución, carro de compras dinámico con selector de salsas/agregados y exportación instantánea del pedido preformateado a la línea de cocina vía WhatsApp.",
+            codeHeader: "cart.js (Cálculo de Pedidos y Exportación a WhatsApp)",
+            code: `// Carro interactivo y exportación a WhatsApp
+function checkoutToWhatsApp(cartItems, customerDetails) {
+  let message = '🍣 *NUEVO PEDIDO KIMUSHI SUSHI*\\n';
+  message += \`Cliente: \${customerDetails.name}\\n\`;
+  message += \`Dirección: \${customerDetails.address}\\n\\n\`;
+  
+  cartItems.forEach(item => {
+    message += \`• \${item.qty}x \${item.name} - $\${item.price * item.qty}\\n\`;
+  });
+  
+  message += \`\\n*TOTAL: $\${calculateTotal(cartItems)}*\`;
+  const url = \`https://wa.me/56987271318?text=\${encodeURIComponent(message)}\`;
+  window.open(url, '_blank');
+}`
+        },
+        barberia_app: {
+            stack: "React &bull; Node.js &bull; Calendario Web &bull; WhatsApp Notifications",
+            title: "BarberApp — Sistema de Agendamiento Online para Barberías",
+            text: "Plataforma SaaS para barberías y salones masculinos. Los clientes seleccionan barbero, servicio (corte clásico, degradado, perfilado de barba) y horario disponible en tiempo real, recibiendo confirmación y recordatorios automatizados por WhatsApp para reducir inasistencias.",
+            codeHeader: "bookingEngine.js (Motor de Comprobación de Turnos)",
+            code: `// Motor de disponibilidad de turnos para barberos
+export function getAvailableSlots(barberId, date, bookedSlots, businessHours) {
+  const slots = generateTimeSlots(businessHours.open, businessHours.close, 30);
+  const activeBookings = bookedSlots.filter(b => b.barberId === barberId && b.date === date);
+  
+  return slots.filter(slot => !activeBookings.some(b => b.time === slot));
+}`
+        },
         pos: {
             stack: "Django &bull; React &bull; SQLite &bull; Python",
             title: "Punto de Venta e Inventarios",
