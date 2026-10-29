@@ -3,9 +3,14 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
         <loc>https://angelds-20.github.io/</loc>
-        <lastmod>2026-10-28</lastmod>
+        <lastmod>2026-10-29</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://angelds-20.github.io/assets/og-image.jpg</image:loc>
+            <image:title>Ángel Noriega — Ingeniero en Informática y Desarrollador Full-Stack</image:title>
+            <image:caption>Servicios de desarrollo de software, plataformas web y pasarelas Webpay Plus en Talca, Chile</image:caption>
+        </image:image>
         <image:image>
             <image:loc>https://angelds-20.github.io/assets/league_of_talca.webp</image:loc>
             <image:title>League of Talca — Plataforma Esports y Comercio Electrónico</image:title>

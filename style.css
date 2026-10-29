@@ -1733,8 +1733,18 @@ a {
     line-height: 1.05;
     text-transform: uppercase;
     color: #09090b;
-    margin: 0 0 20px 0;
+    margin: 0 0 16px 0;
     user-select: none;
+}
+.hero-subheading-seo {
+    font-family: var(--font-title);
+    font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+    font-weight: 700;
+    color: #18181b;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    margin: 0 auto 16px auto;
+    max-width: 820px;
 }
 .gazu-hero-summary {
     font-family: var(--font-sans);

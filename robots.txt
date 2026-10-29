@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://angelds-20.github.io/sitemap.xml
+# AI Agents & LLM Specification: https://angelds-20.github.io/llms.txt

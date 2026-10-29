@@ -29,6 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.classList.remove('active');
             }
         });
+
+        // Optimización de rendimiento: video sólo reproduce si está en la pestaña de proyectos
+        const cleardoseVideo = document.querySelector('video[src="assets/cleardose.mp4"]');
+        if (cleardoseVideo) {
+            if (tabId === 'proyectos') {
+                cleardoseVideo.play().catch(() => {});
+            } else {
+                cleardoseVideo.pause();
+            }
+        }
     }
 
     tabLinks.forEach(link => {

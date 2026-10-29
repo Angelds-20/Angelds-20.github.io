@@ -18,12 +18,17 @@
     
     <!-- Open Graph / Redes Sociales / WhatsApp Preview -->
     <meta property="og:type" content="profile">
+    <meta property="profile:first_name" content="Ángel">
+    <meta property="profile:last_name" content="Noriega">
+    <meta property="profile:username" content="Angelds-20">
     <meta property="og:locale" content="es_CL">
     <meta property="og:site_name" content="Ángel Noriega — Ingeniero en Informática">
     <meta property="og:title" content="Ángel Noriega | Ingeniero en Informática &amp; Desarrollador Full-Stack en Talca, Chile">
     <meta property="og:description" content="Diseño y arquitectura de plataformas web, aplicaciones SaaS transaccionales con Webpay Plus y servidores Linux. Disponible para proyectos y consultoría.">
     <meta property="og:url" content="https://angelds-20.github.io/">
-    <meta property="og:image" content="https://angelds-20.github.io/assets/league_of_talca.webp">
+    <meta property="og:image" content="https://angelds-20.github.io/assets/og-image.jpg">
+    <meta property="og:image:secure_url" content="https://angelds-20.github.io/assets/og-image.jpg">
+    <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Portafolio Profesional de Ángel Noriega — Talca, Chile">
@@ -32,17 +37,25 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Ángel Noriega | Ingeniero en Informática &amp; Desarrollador Full-Stack">
     <meta name="twitter:description" content="Plataformas web de alta concurrencia, e-commerce con Webpay Plus y servidores Linux en Talca, Chile.">
-    <meta name="twitter:image" content="https://angelds-20.github.io/assets/league_of_talca.webp">
+    <meta name="twitter:image" content="https://angelds-20.github.io/assets/og-image.jpg">
     
     <title>Ángel Noriega | Ingeniero en Informática &amp; Desarrollador Full-Stack en Talca, Chile</title>
     
-    <!-- Favicon & Brand Icons (Optimizado para Google y Navegadores) -->
+    <!-- Directiva LLM y GEO -->
+    <link rel="alternate" type="text/plain" href="https://angelds-20.github.io/llms.txt" title="Ficha Técnica para IA (GEO)">
+
+    <!-- Favicon & Brand Icons (Optimizado para Google Search y Navegadores) -->
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#0c0d12">
+
+    <!-- Preload del recurso LCP crítico -->
+    <link rel="preload" as="image" href="assets/league_of_talca.webp" type="image/webp" fetchpriority="high">
     
     <!-- Schema.org JSON-LD (Graph para Google, Gemini & AI Crawlers) -->
     <script type="application/ld+json">
@@ -53,13 +66,22 @@
           "@type": "Person",
           "@id": "https://angelds-20.github.io/#person",
           "name": "Ángel Noriega",
-          "alternateName": ["Angel Noriega", "Angelds-20", "Angel Contreras"],
+          "alternateName": ["Angel Noriega", "Angelds-20"],
           "jobTitle": "Ingeniero en Informática & Desarrollador Full-Stack",
-          "description": "Ingeniero en Informática y Desarrollador Full-Stack especializado en React, Go, Python, PHP, Docker, infraestructura Linux y plataformas SaaS de alto rendimiento.",
+          "description": "Ingeniero en Informática y Desarrollador Full-Stack en Talca, Chile, especializado en plataformas web de alta concurrencia, aplicaciones SaaS, pasarela Webpay Plus, React, Go, Python, PHP, Docker e infraestructura Linux.",
           "url": "https://angelds-20.github.io/",
-          "image": "https://angelds-20.github.io/assets/league_of_talca.webp",
+          "image": "https://angelds-20.github.io/assets/og-image.jpg",
           "email": "3N63L@proton.me",
           "telephone": "+56953679656",
+          "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Ingeniero en Informática & Desarrollador Full-Stack",
+            "occupationalCategory": "15-1252.00",
+            "skills": "Desarrollo Web Full-Stack, Arquitectura SaaS, React, Node.js, PHP, Python, Go, Docker, Linux, Webpay Plus"
+          },
+          "worksFor": {
+            "@id": "https://angelds-20.github.io/#service"
+          },
           "alumniOf": {
             "@type": "EducationalOrganization",
             "name": "INACAP",
@@ -79,6 +101,7 @@
           "knowsAbout": [
             "Ingeniería en Informática",
             "Desarrollo Full-Stack",
+            "Desarrollo Web Talca",
             "Arquitectura de Software SaaS",
             "React & Vite",
             "Linux Server Administration",
@@ -95,8 +118,14 @@
           "@type": "ProfessionalService",
           "@id": "https://angelds-20.github.io/#service",
           "name": "Ángel Noriega — Desarrollo de Software & Consultoría Web",
-          "image": "https://angelds-20.github.io/assets/league_of_talca.webp",
+          "image": "https://angelds-20.github.io/assets/og-image.jpg",
           "url": "https://angelds-20.github.io/",
+          "provider": {
+            "@id": "https://angelds-20.github.io/#person"
+          },
+          "founder": {
+            "@id": "https://angelds-20.github.io/#person"
+          },
           "telephone": "+56953679656",
           "email": "3N63L@proton.me",
           "priceRange": "$$",
@@ -127,13 +156,13 @@
           ],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
-            "name": "Servicios de Desarrollo de Software",
+            "name": "Servicios de Desarrollo de Software y Páginas Web",
             "itemListElement": [
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Desarrollo Web Full-Stack y Plataformas SaaS",
+                  "name": "Desarrollo Web Full-Stack y Plataformas SaaS en Talca y Chile",
                   "description": "Aplicaciones SPA reactivas con React 18, Vite y Next.js conectadas a backends transaccionales rápidos y escalables."
                 }
               },
@@ -160,7 +189,7 @@
           "@type": "WebSite",
           "@id": "https://angelds-20.github.io/#website",
           "url": "https://angelds-20.github.io/",
-          "name": "Ángel Noriega | Portafolio Profesional",
+          "name": "Ángel Noriega | Portafolio Profesional y Servicios de Software",
           "inLanguage": "es-CL",
           "publisher": {
             "@id": "https://angelds-20.github.io/#person"
@@ -170,13 +199,17 @@
     }
     </script>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts con carga optimizada no bloqueante -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800;900&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800;900&display=swap"></noscript>
     
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome Icons con carga no bloqueante -->
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     
     <!-- Custom CSS (Cache-Buster para refresco instantáneo) -->
     <link rel="stylesheet" href="style.css?v=20261028_linkedin_noriega">
@@ -230,10 +263,11 @@
                     </div>
 
                     <div class="gazu-title-wrap">
-                        <div class="hero-role-tag">INGENIERO EN INFORMÁTICA &bull; FULL-STACK &amp; DEVOPS</div>
+                        <div class="hero-role-tag">INGENIERO EN INFORMÁTICA &bull; TALCA, CHILE</div>
                         <h1 class="gazu-monumental-text">ÁNGEL NORIEGA</h1>
+                        <h2 class="hero-subheading-seo">Desarrollador Web Full-Stack &amp; Programador en Talca, Chile</h2>
                         <p class="gazu-hero-summary">
-                            Diseño y arquitectura de plataformas web de alta concurrencia, aplicaciones SaaS transaccionales con Webpay Plus y servidores Linux en producción real.
+                            Ingeniero de software especializado en diseño de plataformas web, sistemas SaaS transaccionales con pasarela Webpay Plus (Transbank), tiendas online de alto rendimiento y servidores Linux en Talca y todo Chile.
                         </p>
                     </div>
 
@@ -310,7 +344,7 @@
                         </div>
                     </div>
                     <div class="gazu-showcase-media">
-                        <img src="assets/league_of_talca.webp" alt="League of Talca — Plataforma Esports y Comercio Electrónico por Ángel Noriega en Talca" loading="lazy" decoding="async" width="2880" height="1800">
+                        <img src="assets/league_of_talca.webp" alt="League of Talca — Plataforma Esports y Comercio Electrónico desarrollada por Ángel Noriega en Talca" fetchpriority="high" decoding="async" width="2880" height="1800">
                         <div class="media-overlay-badge">PRODUCCIÓN ACTIVA</div>
                     </div>
                 </div>
@@ -434,9 +468,9 @@
                 <div class="container">
                     <div class="editorial-section-header text-center">
                         <span class="editorial-meta-tag client-tag"><i class="fa-solid fa-briefcase"></i> DESARROLLO A MEDIDA // PROYECTOS PAGOS</span>
-                        <h2 class="editorial-section-title">¿Tienes un proyecto en mente? Llevémoslo a producción.</h2>
+                        <h2 class="editorial-section-title">Servicios de Desarrollo Web &amp; Software en Talca y Chile</h2>
                         <p class="editorial-section-subtitle">
-                            Desarrollo soluciones digitales de alto impacto para emprendimientos, empresas y comunidades: tiendas con pagos automáticos, plataformas SaaS a medida e infraestructura en servidores Linux sin caídas.
+                            Como programador y desarrollador web full-stack, construyo plataformas web y tiendas e-commerce a medida con Webpay Plus, sistemas SaaS escalables e infraestructura Linux para clientes en Talca, la Región del Maule y todo Chile.
                         </p>
                     </div>
 
@@ -696,7 +730,7 @@
                     <!-- Project 4: ClearDose (IoT / Mobile) -->
                     <div class="project-card" data-category="iot">
                         <div class="project-media media-portrait">
-                            <video src="assets/cleardose.mp4" autoplay loop muted playsinline></video>
+                            <video src="assets/cleardose.mp4" poster="assets/cleardose_poster.jpg" preload="none" loop muted playsinline></video>
                         </div>
                         <div class="card-meta">
                             <span class="tech-stack">C++ (Arduino) &bull; Bluetooth &bull; Kotlin</span>
